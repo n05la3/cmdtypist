@@ -65,3 +65,29 @@ extern void name_display(void)
     printf("%s\n", "                    CMD_TYPIST: enjoy the speed!!!");
 }
 
+/*This function opens a binary file on which zero was initally written, it then checks if the zero is still there, 
+if yes then it is the first time the program is being opened  and then replaces the zero with 1*/
+extern void message_conf(void)//Function for first time message display
+{
+    FILE *fconf;
+    char num_test=8;//value different from 0 or 1
+    if((fconf=fopen("firsttimemessage.dat", "rb+"))==NULL)//opening the file storing information on first time display.
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(1);
+    }   
+    rewind(fconf);//move to beginnning of the file
+    fread(&num_test,sizeof(char),1,fconf);  
+    if(num_test==0)//checking to see if its 0 that is found in the file.
+    {
+        printf("%s\n", "WELCOME!!!, It appears you're opening this program for the first time\n");
+        rewind(fconf);
+        num_test=1;
+        fwrite(&num_test,sizeof(char),1,fconf);
+    }
+    if(fclose(fconf)!=0)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(2);
+    }
+}
