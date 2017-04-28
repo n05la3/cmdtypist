@@ -91,3 +91,61 @@ extern void message_conf(void)//Function for first time message display
         exit(2);
     }
 }
+
+
+extern void fget_ignore_newline(char *arr_no_newline)
+{
+    int i=0;
+    while(arr_no_newline[i]!='\0')
+    {
+        if(arr_no_newline[i]=='\n')
+        {
+            arr_no_newline[i]='\0';
+            break;
+        }
+        i++;
+    }
+}
+
+/*works with fgets to make it work like scanf if, ending string storage after a space character.*/
+extern void fgets_one_name(char *arr_no_newline)
+{
+    int i=0;
+    while(arr_no_newline[i]!='\0')
+    {
+        if(arr_no_newline[i]==' ')
+        {
+            arr_no_newline[i]='\0';
+            break;
+        }
+        i++;
+    }
+}
+
+void get_only_char(char *n)
+{
+    char ch='&';//for flushing
+    printf("%s", "");
+    scanf("%c", n);
+    char f;
+    f=getchar();//f will get \n when n is gotten
+    while((*n!='n'&&*n!='y')||f!='\n')//making sure only n and y or \n (in f) are entered
+    {
+        if(f=='\n')//special case when n is found
+        {
+            printf("Invalid [y/n]:");
+            //while((ch=getchar())!='\n');//flushing the buffer
+            scanf("%c", n);
+            f=getchar();
+        }
+        else
+        {
+            printf("Invalid [y/n]:");
+            while((ch=getchar())!='\n');//flushing the buffer
+            scanf("%c", n);
+            f=getchar();
+        }
+
+    }
+
+}
