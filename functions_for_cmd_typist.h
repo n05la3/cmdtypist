@@ -149,3 +149,28 @@ void get_only_char(char *n)
     }
 
 }
+
+//micking atoi function (returns integer from string) 
+int my_atoi(const char* snum)
+{
+    int idx, str_idx = 0, accum = 0, num_is_neg = 0;
+    const unsigned int NUMLEN = (int)strlen(snum);
+
+    /* Check if negative number and flag it. */
+    if(snum[0] == 0x2d)
+        num_is_neg = 1;
+    for(idx = NUMLEN - 1; idx >= 0; idx--)
+    {
+        /* Only process numbers from 0 through 9. */
+        if(snum[str_idx] >= 0x30 && snum[str_idx] <= 0x39)
+            accum += (snum[str_idx] - 0x30) * my_pow(10, idx);
+        str_idx++;
+    }
+
+    /* Check flag to see if originally passed -ve number and convert result if so. */
+    if(!num_is_neg)
+        return accum;
+    else
+        return accum * -1;
+}
+
