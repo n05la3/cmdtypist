@@ -150,6 +150,25 @@ void get_only_char(char *n)
 
 }
 
+void edit_name(void)
+{	
+	FILE *fp;
+	if((fp=fopen("user.info","r+"))==NULL)
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+		exit(EXIT_FAILURE);
+	}	
+	fseek(fp,select_user(),SEEK_SET);
+	write_to_line(new_name,fp);//writes user name to the line which has been selected by select_user() function
+	if(fclose(fp))
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+	    exit(EXIT_FAILURE);
+	}
+	
+}
+/*used to remove all non standard ascii codes from user text*/
+
 float my_pow(float base, int exp)//mickmicking the pow function
 {
     float temp;
