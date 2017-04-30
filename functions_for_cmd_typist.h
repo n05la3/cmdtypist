@@ -150,6 +150,23 @@ void get_only_char(char *n)
 
 }
 
+float my_pow(float base, int exp)//mickmicking the pow function
+{
+    float temp;
+    if( exp == 0)
+       return 1;
+    temp = my_pow(base, exp/2);       
+    if (exp%2 == 0)
+        return temp*temp;
+    else
+    {
+        if(exp > 0)
+            return base*temp*temp;
+        else
+            return (temp*temp)/base;
+    }
+}
+
 //micking atoi function (returns integer from string) 
 int my_atoi(const char* snum)
 {
