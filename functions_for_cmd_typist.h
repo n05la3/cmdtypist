@@ -167,6 +167,37 @@ void edit_name(void)
 	}
 	
 }
+
+void remove_ext_ascii(void)
+{
+	srand((unsigned)time(NULL));
+	FILE *fp;
+	if((fp=fopen(file_to_read,"r+"))==NULL)
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+		exit(EXIT_FAILURE);
+	}
+	rewind(fp);
+	char ch,f;
+	while((ch=getc(fp))!=EOF)
+	{
+		if(ch!='\n')
+			if(!(isascii(ch)))
+			{
+				ch=rand()%15+33;
+				//fprintf(stderr, "%c", ch);
+				//f=getchar();
+				fseek(fp,-1L,SEEK_CUR);
+				putc(ch,fp);
+			}
+	}
+	if(fclose(fp))
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+	    exit(EXIT_FAILURE);
+	}
+}
+
 /*used to remove all non standard ascii codes from user text*/
 
 float my_pow(float base, int exp)//mickmicking the pow function
