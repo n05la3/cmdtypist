@@ -20,6 +20,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+#include<ctype.h>
 char time_set=0;
 int argc=1;
 char file_to_read[19];//name of lesson file to read from
@@ -239,5 +240,32 @@ int my_atoi(const char* snum)
         return accum;
     else
         return accum * -1;
+}
+
+void swap_modify_name(int length_of_string)//swaps new name with former name and catenates the former name with new name details
+{
+    int i=0;
+    //301, is just an exiting value 
+    while(i<=301)
+    {
+        int j=0;
+        if(user_info[i]=='.')
+        {
+            while(j<=301)
+            {
+                //strcat(new_name,user_info[j+1]);
+                new_name[length_of_string+j]=user_info[j+i];
+                if(j==strlen(user_info)-i)
+                {
+                    j=300;//value to help for an exit since the length of the sring is never more than 81
+                    i=300;
+                }
+                j++;
+            }
+        }
+        i++;
+    }
+    new_name[strlen(new_name)]='\n';    
+    new_name[strlen(new_name)]='\0';    
 }
 
