@@ -282,3 +282,11 @@ char *upper_case(char *name)
 	return name;
 }
 
+char *cat_name(char *name)//catenating \n to a pointer to .
+{
+	char trick_name[SIZE_NAME];//trick string for name catenating.	
+	strcpy(trick_name,name);
+	strcat(trick_name,"\n");
+	strcpy(name,trick_name);
+	return name;
+}
