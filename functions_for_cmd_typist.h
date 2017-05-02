@@ -290,3 +290,13 @@ char *cat_name(char *name)//catenating \n to a pointer to .
 	strcpy(name,trick_name);
 	return name;
 }
+
+void valid_range(int num_to_convert)//Ensures correct range is entered
+{
+	while(num_to_convert!=1||num_to_convert!=0)
+	{
+		printf("\n%s", "Continue?: 1:Yes 0:No");
+		scanf("%d",&num_to_convert);
+		//get_int(&num_to_convert);
+	}
+}
