@@ -269,3 +269,16 @@ void swap_modify_name(int length_of_string)//swaps new name with former name and
     new_name[strlen(new_name)]='\0';    
 }
 
+
+char *upper_case(char *name)
+{
+	unsigned short int i=0;
+	while(i<strlen(name))
+	{
+		name[i]=toupper(name[i]);
+		i++;
+	}
+	name[i]='\0';
+	return name;
+}
+
