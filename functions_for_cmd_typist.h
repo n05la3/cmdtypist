@@ -307,3 +307,18 @@ void cpy_2d_string( char *destination[],const char *source[],int argc)//source=a
 	for(i=1;i<=argc;i++)
 		strcpy(destination[i],source[i]);
 }
+
+void write_to_line(char* to_write, FILE* fp)
+{
+	int i=0;
+	char ch;
+
+	//while((ch=fgetc(fp))!='\n')//Ensuring the end of file is not reached
+	//{
+
+		if((strlen(new_name))>=strlen(user_info))//starts printing in the first position of the line		
+			fprintf(fp, "%s", to_write);//write name
+
+	//	i++;		
+	//}
+}
