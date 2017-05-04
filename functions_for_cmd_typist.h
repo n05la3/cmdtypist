@@ -300,3 +300,10 @@ void valid_range(int num_to_convert)//Ensures correct range is entered
 		//get_int(&num_to_convert);
 	}
 }
+
+void cpy_2d_string( char *destination[],const char *source[],int argc)//source=argv from command line
+{
+	int i;//counter for the number of elements in the strings
+	for(i=1;i<=argc;i++)
+		strcpy(destination[i],source[i]);
+}
