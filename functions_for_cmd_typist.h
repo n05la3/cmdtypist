@@ -318,7 +318,20 @@ void write_to_line(char* to_write, FILE* fp)
 
 		if((strlen(new_name))>=strlen(user_info))//starts printing in the first position of the line		
 			fprintf(fp, "%s", to_write);//write name
-
+		else
+		{
+			fprintf(fp, "%s", to_write);
+			while((ch=getc(fp))!='\n')
+			{
+				fseek(fp,-1L,SEEK_CUR);
+				fprintf(fp, "%c", ' ');
+			}
+			if((ch=getc(fp))!='\n'&&ch!=' ')
+			fseek(fp,-1L,SEEK_CUR);//moving backward one space since getc above had moved one space ahead
+									//so as to write over the data existing.
+			//fprintf(fp, "%s", " ");
+			
+		}
 	//	i++;		
 	//}
 }
