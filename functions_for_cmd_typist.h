@@ -330,7 +330,12 @@ void write_to_line(char* to_write, FILE* fp)
 			fseek(fp,-1L,SEEK_CUR);//moving backward one space since getc above had moved one space ahead
 									//so as to write over the data existing.
 			//fprintf(fp, "%s", " ");
-			
+			if(ch=='\n')
+			{
+				fseek(fp,-1L,SEEK_CUR);
+				fprintf(fp, "%c", '\n');//writing newline at the end of file since it had been replaced with a space string
+				break;//escaping since the end of the line has been reached
+			}			
 		}
 	//	i++;		
 	//}
