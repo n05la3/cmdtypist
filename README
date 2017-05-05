@@ -1,9 +1,9 @@
 Introduction
 ------------
 
-cmdtypist is a programmer oriented terminal typing tutor designed to work on 
-the gnome-terminal. It consists true programming lessons, so the user can 
-type and learn at the same time.
+cmdtypist is a programmer oriented terminal typing tutor designed to work 
+on the gnome-terminal, xterm and uxterm and others. It consists true 
+programming lessons, so the user can type and learn at the same time.
 
 
 License
