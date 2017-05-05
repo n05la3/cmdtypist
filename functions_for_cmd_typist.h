@@ -1,6 +1,7 @@
 /* 
-   cmd_typist: an extreme fast terminal typing tutor/meter designed to work on ubuntu and other linux distros
-    <cmd_typist>  Copyright (C) <*****>  by Prince Noslac
+   cmd_typist: an extreme fast terminal typing tutor/meter designed to work 
+   on terminals like gnome-terminal, xterm, uxterm and others
+   <cmd_typist> Copyright (C) <*****>  by Prince Noslac
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
