@@ -341,3 +341,13 @@ void write_to_line(char* to_write, FILE* fp)
 	//	i++;		
 	//}
 }
+
+/*Sleep function for both linux and windows, passing the number of seconds as a parameter*/
+extern void sleepf(int time_to_sleep)//implementing a sleep function 
+	{
+		#ifdef _WIN32
+        Sleep(time_to_sleep);
+        #else
+        sleep(time_to_sleep);
+        #endif 
+	}
