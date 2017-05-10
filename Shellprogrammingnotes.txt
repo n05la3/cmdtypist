@@ -276,3 +276,193 @@ ls -l /usr/bin
 ls -ld /usr/bin
 ls /usr/bin/d*
 dir d*.*
+List all files whose names begin with the letter )+$d,-(
+in the /usr/bin directory.4.0
+Piping and Re-Direction
+Before we move on to learning even more commands, let's side-track to the topics of piping and
+re-direction. The basic UNIX philosophy, therefore by extension the Linux philosophy, is to have
+many small programs and utilities that do a particular job very well. It is the responsibility of the
+programmer or user to combine these utilities to make more useful command sequences.
+4.1
+Piping Commands Together
+The pipe character, '.&|-+(, is used to chain two or more commands together. The output of the first
+command is !.+piped!/. into the next program, and if there is a second pipe, the output is sent to the
+third program, etc. For example:
+ls -la /usr/bin | less
+In this example, we run the command $#(ls -la /usr/bin#$*, which gives us a long listing of all
+of the files in /usr/bin. Because the output of this command is typically very long, we pipe the
+output to a program called $,%less%"*, which displays the output for us one screen at a time.
+4.2
+Redirecting Program Output to Files
+There are times when it is useful to save the output of a command to a file, instead of displaying it
+to the screen. For example, if we want to create a file that lists all of the MP3 files in a directory,
+we can do something like this, using the .#,>"&" redirection character:
+ls -l /home/vic/MP3/*.mp3 > mp3files.txt
+A similar command can be written so that instead of creating a new file called mp3files.txt,
+we can append to the end of the original file:
+ls -l /home/vic/extraMP3s/*.mp3 >> mp3files.txt5.0
+Other Linux Commands
+The following sections describe many other commands that you will find on most Linux systems.
+I can't possibly cover the details of all of these commands in this document, so don't forget that you
+can check the !%/man pages-"* for additional information. Not all of the listed commands will be
+available on all Linux or UNIX distributions.
+5.1
+Working With Files and Directories
+These commands can be used to: find out information about files, display files, and manipulate
+them in other ways (copy, move, delete).
+Linux
+Command
+DOS
+Command
+file
+Description
+Find out what kind of file it is.
+For example, -)/file /bin/ls/*. tells us that it is a Linux
+executable file.
+cat
+type
+head
+Display the contents of a text file on the screen. For
+example: cat mp3files.txt would display the file we
+created in the previous section.
+Display the first few lines of a text file.
+Example: head /etc/services
+tail
+Display the last few lines of a text file.
+Example: tail /etc/services
+tail -f
+Display the last few lines of a text file, and then output
+appended data as the file grows (very useful for following
+log files!).
+Example: tail -f /var/log/messages
+cp
+copy
+Copies a file from one location to another.
+Example: cp mp3files.txt /tmp
+(copies the mp3files.txt file to the /tmp directory)
+mv
+rename,
+ren, move
+Moves a file to a new location, or renames it.
+For example: mv mp3files.txt /tmp
+(copy the file to /tmp, and delete it from the original
+location)
+rm del Delete a file. Example: rm /tmp/mp3files.txt
+mkdir md Make Directory. Example: mkdir /tmp/myfiles/
+rmdir rd, rmdir Remove Directory. Example: rmdir /tmp/myfiles/5.2
+Finding Things
+The following commands are used to find files. -%"ls,', is good for finding files if you already know
+approximately where they are, but sometimes you need more powerful tools such as these:
+Linux
+Command
+Description
+which Shows the full path of shell commands found in your path. For example, if
+you want to know exactly where the .#/grep*'! command is located on the
+filesystem, you can type +%#which grep(-). The output should be something
+like: /bin/grep
+whereis Locates the program, source code, and manual page for a command (if all
+information is available). For example, to find out where )%-ls/"& and its man
+page are, type: !..whereis ls!&/ The output will look something like:
+ls: /bin/ls /usr/share/man/man1/ls.1.gz
+locate A quick way to search for files anywhere on the filesystem. For example, you
+can find all files and directories that contain the name .#%mozilla''# by typing:
+locate mozilla
+find A very powerful command, but sometimes tricky to use. It can be used to
+search for files matching certain patterns, as well as many other types of
+searches. A simple example is:
+find . -name \*mp3
+This example starts searching in the current directory *%%.).+ and all sub-
+directories, looking for files with "!'mp3+($ at the end of their names.
+5.3
+Informational Commands
+The following commands are used to find out some information about the user or the system.
+Linux Command
+Explanation
+ps Lists currently running process (programs).
+w Show who is logged on and what they are doing.
+id Print your user-id and group id's
+df Report filesystem disk space usage ($((Disk Free('* is how I remember it)
+du Disk Usage in a particular directory. %(/du -s$(% provides a summary
+for the current directory.
+top Displays CPU processes in a full-screen GUI. A great way to see the
+activity on your computer in real-time. Type *-/Q&,- to quit.
+free Displays amount of free and used memory in the system.
+cat /proc/cpuinfo Displays information about your CPU.
+cat /proc/meminfo Display lots of information about current memory usage.
+uname -a
+Prints system information to the screen (kernel version, machine type,
+etc.)5.4
+Other Utilities
+Here are some other commands that are useful to know.
+Linux Command
+Description
+clear Clear the screen
+echo Display text on the screen. Mostly useful when writing shell scripts. For
+example: echo )&"Hello World%''
+more Display a file, or program output one page at a time. Examples:
+more mp3files.txt
+ls -la | more
+less An improved replacement for the !(.more'*' command. Allows you to scroll
+backwards as well as forwards.
+grep Search for a pattern in a file or program output. For example, to find out
+which TCP network port is used by the #&.nfs*-- service, you can do this:
+grep +*%nfs#%$ /etc/services
+This looks for any line that contains the string '.(nfs-%+ in the file *%)/etc/services#)/
+and displays only those lines.
+lpr
+Print a file or program output. Examples:
+lpr mp3files.txt - Print the mp3files.txt file
+ls -la | lpr
+- Print the output of the !!.ls -la//( command.
+sort Sort a file or program output. Example: sort mp3files.txt
+su &"-Switch User+##. Allows you to switch to another user's account temporarily.
+The default account to switch to is the root/superuser account. Examples:
+su - Switch the root account
+su - - Switch to root, and log in with root's environment
+su larry - Switch to Larry's account5.5
+Shortcuts to Make it all Easier!
+When you start using the Bash shell more often, you will appreciate these shortcuts that can save
+you very much typing time.
+Shortcut
+Description
+Up/Down Arrow Keys Scroll through your most recent commands. You can
+scroll back to an old command, hit E NTER , and execute the
+command without having to re-type it.
+/&,history+(( command Show your complete command history.
+T AB Completion If you type a partial command or filename that the shell
+recognizes, you can have it automatically completed for
+you if you press the T AB key. Try typing the first few
+characters of your favourite Linux command, then hit T AB
+a couple of times to see what happens.
+Complete recent commands with .&&!.$" Try this: Type )--!"(. followed by the first couple of letters
+of a recent command and press E NTER ! For example, type:
+find /usr/bin -type f -name m\*
+...and now type:
+!fi
+Search your command history with
+CTRL-R Press CTRL-R and then type any portion of a recent
+command. It will search the commands for you, and once
+you find the command you want, just press E NTER .
+Scrolling the screen with Shift-
+PageUp and Page Down Scroll back and forward through your terminal.
+6.0
+Further Reading
+Link Address
+Description
+http://www.oclug.on.ca Ottawa Canada Linux Users Group. A
+group with an active mailing list, monthly
+meetings, and much more.
+http://www.exitcertified.com Ottawa's source for Sun training, and the
+host of OCLUG's technology seminars.
+http://www.fsf.org The
+Free
+Software
+Foundation.
+Documentation, source code, and much
+more for many programs commonly
+found on Linux systems.
+http://linux.org.mt/article/terminal ((.A Beginner's Bash-'%. Another very good
+introduction to Bash.
+http://www.oreilly.com/catalog/bash2 An excellent book if you want to learn
+how to customize Bash and use it for shell
+script programming.
