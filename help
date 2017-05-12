@@ -1,2 +1,26 @@
-CMD TYPIST HELP MENU
---------------------
+
+			CMD TYPIST HELP MENU
+			====================
+
+Cmdtypist Commands:
+------------------
+
+1) cmdtypist mkuser "username":
+   --------------------------
+Creates a new user and stores username in the user_speed text file. Running this command erases current name in user_speed file. This command must be run by first time cmdtypist users. This command is mandatory once for every first time user. Running other commands for the first time without running this command will show and error message mandating this command. Running this command when a user name already exist deletes the current user to the new user name specified as second argument. If you want to preserve saved data in the user_speed file, then copy and paste in a different directory or rename it.
+
+2) cmtypist ls:
+   -----------   
+List available lessons for typing. Whenever the lessons are listed, the command select "lesson number" has to be followed to select lesson.
+
+3) cmtypist --help: 
+  ---------------
+  Use this command if you find any difficulty. It display every help a user will need before and while using cmtypist.
+
+4) cmtypist man:
+   ------------
+Displays the README file which contains a description of cmdtypist and all it's features, license, installation and others
+
+5) cmdtypist select "lesson number": 
+   --------------------------------
+This command automatically selects a lesson from lesson file for user to type without having to list the lessons available. his command can only be useful if a user exist in the user file. "lesson number" is an integer between 1 and 15.
