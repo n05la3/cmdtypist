@@ -86,3 +86,8 @@ Resets to cmdtypist default settings, this command is for a soft reset, which do
 6) Do i have to set mode to rand each time i want to type in random mode?:
 	Answer: 
 	No, cmdtypist has a .conf file which is used to register user settings. Every other setting the user makes by running the commands above is saved in the .conf file. Use the reset command to revert settings to default when things go wrong!
+
+7) Do i have permission to copy lessons in the cmdtypist lesson file? 
+	Answer: 
+	Yes the lesson file is open source, but copy should be done under the terms of the GNU GPL version 3 or later.
+8)
