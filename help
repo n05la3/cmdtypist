@@ -68,9 +68,10 @@ Resets to cmdtypist default settings, this command is for a soft reset, which do
 2) I keep on getting the "Fatal Error, Some files are missing", what's happening?: 
 	Answer: 
 	It's most probably because a file which came with the program is missing or cmdtypist is unable to read because some other program reading it is preventing cmdtypist from accessing it. 
+	- You are most probably running cmdtypist without the begin; command
 	- If any of such files is opened anywhere, close it and restart cmdtypist.
-	- User cmdtypist reset raw to reset to default settings. Save user_speed file before using this command.
-	- If problem persist then a file must have been deleted, get a fresh copy of cmdtypist.
+	- Use cmdtypist reset raw to reset to default settings. Save user_speed file before using this command.
+	- If problem persists then a file must have been deleted, get a fresh copy of cmdtypist.
 
 3) Sound command produces no beep on wrond characters:
 	Answer: 
