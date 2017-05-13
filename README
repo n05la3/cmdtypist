@@ -2,9 +2,8 @@ Introduction
 ------------
 
 cmdtypist is a programmer oriented terminal typing tutor designed to work 
-on the gnome-terminal, xterm and uxterm and others. It consists true 
-programming lessons, so the user can type and learn at the same time.
-
+on the gnome-terminal, xterm and uxterm and others written in c. It consists
+true programming lessons, so the user can type and learn at the same time.
 
 License
 -------
@@ -25,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 General Features
 ----------------
 
-*Extremely fast since it is written in c
+*Extremely fast, never again type faster than your type tutor!!!
 *Has lessons for non programmers and c,c++,java/android programmers
 *An accurate speed algorithm in character per minute (CPM) and an approximate
 in word per minute WPM(accuracy -+0.35)
@@ -62,4 +61,7 @@ correct)
 and starts only as described above.
 -The last line of each lesson session is marked blue, so user is aware and 
 can take time to review speed details befor estarting the following lesson.
+
+
+
 
