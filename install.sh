@@ -4,4 +4,5 @@ echo "Enter password to create a link for cmdtypist and access it from any direc
 sudo echo >> $HOME/.bashrc&&
 echo "#symbolic link for cmdtypist">> $HOME/.bashrc&&
 echo "alias begin='cd $HOME/cmdtypistversion1.0/'">> $HOME/.bashrc&&
- 
+echo "alias cmdtypist='$HOME/cmdtypistversion1.0/cmdtypist'">> $HOME/.bashrc&&
+cp -r ../cmdtypistversion1.0 $HOME/cmdtypistversion1.0/ 
