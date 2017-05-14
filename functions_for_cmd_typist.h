@@ -94,6 +94,26 @@ extern void message_conf(void)//Function for first time message display
     }
 }
 
+//0=message config, 1=mode config, 2=block confi , 3=sound config, 4: user text config
+extern char read_myown_config(void)//num_value is used to record settings for random and standard play
+{
+    char num_value;
+    FILE *fconf;//file pointer to configuration file
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fconf,4L,SEEK_SET);
+    fread(&num_value,sizeof(char),1,fconf);
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+    return num_value;
+}
+
 
 extern void fget_ignore_newline(char *arr_no_newline)
 {
