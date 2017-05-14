@@ -114,6 +114,23 @@ extern char read_myown_config(void)//num_value is used to record settings for ra
     return num_value;
 }
 
+extern void write_myown_config(char n)//r is used to record settings for random and standard play
+{
+    FILE *fconf;
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fconf,4L,SEEK_SET);
+    fwrite(&n,sizeof(char),1,fconf);
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+}
+
 
 extern void fget_ignore_newline(char *arr_no_newline)
 {
