@@ -388,3 +388,17 @@ extern void sleepf(int time_to_sleep)//implementing a sleep function
         sleep(time_to_sleep);
         #endif 
 	}
+void make_current(FILE* file_to_remove_from)
+{
+    
+    char ch;
+    fseek(file_to_remove_from,-300L,SEEK_END);  
+    while((ch=getc(file_to_remove_from))!=EOF)
+    {
+        if(ch=='-'||ch=='|'||ch=='+')
+        {
+            fseek(file_to_remove_from,-1L,SEEK_CUR);
+            fputc(' ',file_to_remove_from);//over written current lesson with new one to become current
+        }
+    }
+}
