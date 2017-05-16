@@ -402,3 +402,26 @@ void make_current(FILE* file_to_remove_from)
         }
     }
 }
+
+/*Ensures atleast one user account exist*/
+extern void user_test(void)
+    {
+        FILE *fp;
+        if((fp=fopen("./speed/user_speed.info","r"))==NULL)
+        {
+            fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+            exit(EXIT_FAILURE);
+        }
+        rewind(fp);
+        char ch=getc(fp);
+        if(ch==EOF)//checking if at the beginning of a character there is a charater, if not exist
+        {
+            fprintf(stderr, "%s\n", "No user exists yet, use <command mkuser \"username\"> to add new user");
+            exit(EXIT_FAILURE);
+        }
+        if(fclose(fp))
+        {
+            fprintf(stderr, "%s\n", "Unable to close lesson file");
+            exit(EXIT_FAILURE);
+        }
+    }
