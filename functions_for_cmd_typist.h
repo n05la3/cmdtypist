@@ -407,7 +407,7 @@ void make_current(FILE* file_to_remove_from)
 extern void user_test(void)
     {
         FILE *fp;
-        if((fp=fopen("./speed/user_speed.info","r"))==NULL)
+        if((fp=fopen("./speed/user_speed.info","r"))=NULL)
         {
             fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
             exit(EXIT_FAILURE);
