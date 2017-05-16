@@ -407,7 +407,7 @@ void make_current(FILE* file_to_remove_from)
 extern void user_test(void)
     {
         FILE *fp;
-        if((fp=fopen("./speed/user_speed.info","r"))=NULL)
+        if((fp=fopen("./speed/user_speed.info","r"))==NULL)
         {
             fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
             exit(EXIT_FAILURE);
@@ -425,3 +425,13 @@ extern void user_test(void)
             exit(EXIT_FAILURE);
         }
     }
+
+
+void session_style(unsigned int session_time, unsigned short wrongly_typed,float typed)
+{
+    float raw_speed=0.0,adj_speed=0.0;
+    raw_speed= ((float) typed*60.0f)/(float)session_time;
+    adj_speed= (float) ((typed-wrongly_typed)*60.0)/(float)session_time;
+    char time_conversion[36];//stores converted time by seconds_hms()
+
+}
