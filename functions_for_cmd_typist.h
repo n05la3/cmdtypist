@@ -427,11 +427,25 @@ extern void user_test(void)
     }
 
 
+//modifies the manner in which sesson speed is displayed
+//5 is the accepted average number of letters in a word 
 void session_style(unsigned int session_time, unsigned short wrongly_typed,float typed)
 {
     float raw_speed=0.0,adj_speed=0.0;
     raw_speed= ((float) typed*60.0f)/(float)session_time;
     adj_speed= (float) ((typed-wrongly_typed)*60.0)/(float)session_time;
     char time_conversion[36];//stores converted time by seconds_hms()
-
+    printf(""RESET"\n%s\n", "For better speed follow up, consult \"user_speed.info\" file in speed directory");
+    puts("-------------------------------+-----------+------------------------------------");
+    puts("-------------------------------SESSION SPEED------------------------------------");//printing session heading
+    puts("-------------------------------+-----------+------------------------------------");
+    printf("**************                                                     *************\n");
+    fprintf(stdout, "\t+------------------%s %s %s----------------------+\n", __DATE__,"at",__TIME__);//printing date and time when the test is done
+    seconds_to_hms(session_time,time_conversion);
+    //fprintf(fp, "\t|%d%s TIME: %s\n",wrongly_typed,(wrongly_typed==0)? "(NO Error)":(wrongly_typed==1)? "ERROR":"ERRORS",time_conversion);
+    raw_speed= ((float) typed*60.0f)/(float)session_time;
+    adj_speed= (float) ((typed-wrongly_typed)*60.0)/(float)session_time;        
+    fprintf(stdout, "\t|ERROR(s):"RED"%d"RESET" TIME: "SPEED_COLOR"%s"RESET" Accuracy: "SPEED_COLOR"%.2f%%"RESET"\n",wrongly_typed,time_conversion,((float) typed-(float)wrongly_typed)/(float) typed*100.0f);
+    fprintf(stdout, "\t|%s"SPEED_COLOR"%.2f"RESET"CPM ~= "GREEN"%.2f"RESET"WPM \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5);
+    fprintf(stdout, "%s\n\n", "\t+---------------------------------------------------------------+");
 }
