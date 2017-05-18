@@ -562,3 +562,20 @@ extern void write_message_conf(char n)//r is used to record settings for random 
         exit(EXIT_FAILURE);
     }
 }
+
+/*This function opens a binary file on which zero was initally written, it then checks if the zero is still there, 
+if yes then it is the first time the program is being opened  and then replaces the zero with 1*/
+extern void read_message_conf(void)//Function for first time message display
+{
+    FILE *fconf;
+    char num_test=8;//value different from 0 or 1
+    if((fconf=fopen("cmdtypist.conf", "rb+"))==NULL)//opening the file storing information on first time display.
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(1);
+    }   
+    rewind(fconf);//move to beginnning of the file
+
+
+    
+}
