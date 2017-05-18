@@ -535,3 +535,13 @@ extern char adapt_to_ver_read(void)//num_value is used to record settings for ra
     }
     return num_value;
 }
+
+int range_verifier(int n)
+{
+    if(n<0||n>15)
+    {
+        fprintf(stderr, "%s\n", "Lesson number does not exist");
+        exit(EXIT_FAILURE);
+    }
+    return n;
+}
