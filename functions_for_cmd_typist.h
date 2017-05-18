@@ -483,3 +483,36 @@ extern void sound_config_write(unsigned int n)//r is used to record settings for
         exit(EXIT_FAILURE);
     }
 }
+
+//helps to adapt to version by solving problem of erasing a character
+//writes one or 
+extern char adapt_to_ver(void)//num_value is used to record settings for random and standard play
+{
+    char num_value,n;
+    FILE *fconf;
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fconf,5L,SEEK_SET);
+    fread(&num_value,sizeof(char),1,fconf);
+    fseek(fconf,-1,SEEK_CUR);
+    //num_value=2;//first time value writing, to be commented
+    if(num_value==1)
+    {
+        num_value=2;
+        fwrite(&num_value,sizeof(char),1,fconf);
+    }
+    else if(num_value==2)
+    {
+        num_value=1;
+        fwrite(&num_value,sizeof(char),1,fconf);
+    }
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+    return num_value;
+}
