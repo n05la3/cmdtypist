@@ -545,3 +545,20 @@ int range_verifier(int n)
     }
     return n;
 }
+
+//writing message configuration to config file
+extern void write_message_conf(char n)//r is used to record settings for random and standard play
+{
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    rewind(fconf);
+    fwrite(&n,sizeof(char),1,fconf);
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+}
