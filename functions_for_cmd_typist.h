@@ -449,3 +449,20 @@ void session_style(unsigned int session_time, unsigned short wrongly_typed,float
     fprintf(stdout, "\t|%s"SPEED_COLOR"%.2f"RESET"CPM ~= "GREEN"%.2f"RESET"WPM \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5);
     fprintf(stdout, "%s\n\n", "\t+---------------------------------------------------------------+");
 }
+
+extern void write_conf_block_read(unsigned int n)//r is used to record settings for random and standard play
+{
+    FILE *fconf;
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fconf,2L,SEEK_SET);
+    fwrite(&n,sizeof(char),1,fconf);
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+}
