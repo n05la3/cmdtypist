@@ -516,3 +516,22 @@ extern char adapt_to_ver(void)//num_value is used to record settings for random 
     }
     return num_value;
 }
+
+extern char adapt_to_ver_read(void)//num_value is used to record settings for random and standard play
+{
+    char num_value;
+    FILE *fconf;
+    if((fconf=fopen("cmdtypist.conf","rb+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    fseek(fconf,5L,SEEK_SET);
+    fread(&num_value,sizeof(char),1,fconf);
+    if(fclose(fconf))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+    return num_value;
+}
