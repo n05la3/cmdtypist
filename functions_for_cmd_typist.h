@@ -575,7 +575,49 @@ extern void read_message_conf(void)//Function for first time message display
         exit(1);
     }   
     rewind(fconf);//move to beginnning of the file
+    fread(&num_test,sizeof(char),1,fconf);  
+    if(num_test==0)//checking to see if its 0 that is found in the file.
+    {
+        system("clear");
+        printf("%s\n", "      ============================WELCOME!!!============================      \n");
+        rewind(fconf);
+        num_test=1;
+        fwrite(&num_test,sizeof(char),1,fconf);
+        printf("\ncmd_typist: an extreme fast terminal typing tutor/meter designed to work on ubuntu and other linux distros "
+        "<cmd_typist v 1.0>  Copyright (C) <*****>  by Prince Noslac"
 
+        "\n\nThis program is free software: you can redistribute it and/or modify "
+        "it under the terms of the GNU General Public License as published by "
+        "the Free Software Foundation, either version 3 of the License, or "
+        "(at your option) any later version."
 
-    
+        "\n\nThis program is distributed in the hope that it will be useful, "
+        "but WITHOUT ANY WARRANTY; without even the implied warranty of "
+        "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
+        "GNU General Public License for more details.\n");
+        printf("\n%s\n","Do you want to view full license[y/n]:" );
+        if(fclose(fconf)!=0)
+        {
+            fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+            exit(2);
+        }
+        if(get_only_char()=='y')
+        {
+            if((fconf=fopen("LICENSE","r"))==NULL)
+                fprintf(stderr, "%s\n", "GNU GPL license not found in program directory, visit <http://www.gnu.org/licenses/>");
+            else
+            {
+                char ch;
+                while((ch=getc(fconf))!=EOF)
+                    putchar(ch);
+            }
+            if(fclose(fconf)!=0)
+            {
+                fprintf(stderr, "%s\n", "Fatal Error, license file is corrupted\n");
+                exit(2);
+            }
+        }
+        printf("%s\n", "ENTER to continue");
+        while(ch=getchar()!='\n');//remains here until enter key.
+    }   
 }
