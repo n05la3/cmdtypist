@@ -630,5 +630,22 @@ void test_new_user(char *name)//used to create new user name
         fprintf(stderr, "%s %s\n", name,"too short, cannot be a user name");//exiting when a wrong value is entered
         exit(EXIT_FAILURE);
     }
-
+    //char ch='z';//setting a value so that the value initialized by default is never y or n
+    printf("WARNING: All saved data will be erased <copy and save ./speed/user_speed.info file if you would need it in future>\n"
+        "Do you want to continue: [y/n]:");
+    if(get_only_char()=='n')
+        exit(EXIT_FAILURE);
+    FILE *fp;
+    if((fp=fopen("./speed/user_speed.info","w"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }
+    rewind(fp);
+    fprintf(fp, "%s\n", name);
+    if(fclose(fp))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
 }
