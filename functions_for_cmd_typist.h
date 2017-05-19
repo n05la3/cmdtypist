@@ -198,7 +198,7 @@ extern int getche(void)
             newattr = oldattr;
             newattr.c_lflag &= ~( ICANON | ECHO);//shell out to kill echo
             tcsetattr( STDIN_FILENO, TCSANOW, &newattr );
-            system("stty echo");//shell out to kill echo
+            system("stty -echo");//shell out to kill echo
             ch = getchar();
             tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
             return ch;
