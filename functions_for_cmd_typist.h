@@ -189,6 +189,21 @@ void get_only_char(char *n)
 
 }
 
+     /*prevent echoing of characters from the buffer*/
+extern int getche(void)
+        {
+            struct termios oldattr, newattr;
+            int ch;
+            tcgetattr( STDIN_FILENO, &oldattr );
+            newattr = oldattr;
+            newattr.c_lflag &= ~( ICANON | ECHO);//shell out to kill echo
+            tcsetattr( STDIN_FILENO, TCSANOW, &newattr );
+            system("stty echo");//shell out to kill echo
+            ch = getchar();
+            tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
+            return ch;
+        }
+
 void edit_name(void)
 {	
 	FILE *fp;
