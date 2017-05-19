@@ -621,3 +621,14 @@ extern void read_message_conf(void)//Function for first time message display
         while(ch=getchar()!='\n');//remains here until enter key.
     }   
 }
+
+void test_new_user(char *name)//used to create new user name
+{
+    strcat(upper_case(name),"\n");
+    if(strlen(name)<3)
+    {
+        fprintf(stderr, "%s %s\n", name,"too short, cannot be a user name");//exiting when a wrong value is entered
+        exit(EXIT_FAILURE);
+    }
+
+}
