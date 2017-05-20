@@ -676,3 +676,26 @@ long int read_file_size(FILE* name_to_read)
            size++;
         return size;
     }
+
+
+/*Selects the user playing based on the name sent to it via command line*/
+long int select_user(void)
+{
+    if((user_ptr=fopen("user.info","r+"))==NULL)
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+        exit(EXIT_FAILURE);
+    }   
+    int get_count=0;//used to regulate first user since there is no newline before the first user
+    char ch;
+    rewind(user_ptr);
+    u=0;
+    int i=0;
+
+    if(fclose(user_ptr))
+    {
+        fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+        exit(EXIT_FAILURE);
+    }
+
+}
