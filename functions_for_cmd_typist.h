@@ -703,7 +703,8 @@ long int select_user(void)
                 break;
             u++;
         }
-        if(strcmp(temp_name,user_name)=0)
+        temp_name[u+1]='\0';
+        if(strcmp(temp_name,user_name)==0)
         {           
             //fseek(user_ptr,select_user(),SEEK_CUR);//Moving back to start reading from the correct position
             break;
