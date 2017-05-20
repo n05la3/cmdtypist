@@ -665,3 +665,14 @@ void test_new_user(char *name)//used to create new user name
         exit(EXIT_FAILURE);
     }
 }
+
+long int read_file_size(FILE* name_to_read)
+    {
+        char ch;
+
+        int size=0;
+        rewind(name_to_read);
+        while((ch=getc(name_to_read))!=EOF)
+           size++;
+        return size;
+    }
