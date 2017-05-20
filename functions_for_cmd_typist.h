@@ -691,7 +691,42 @@ long int select_user(void)
     rewind(user_ptr);
     u=0;
     int i=0;
-
+    while(u!=369)
+    {
+        get_user_name();
+        get_count++;
+        strcpy(temp_name,user_info);
+        u=0;
+        while(u!=369)
+        {
+            if((char)temp_name[u]=='.')
+                break;
+            u++;
+        }
+        if(strcmp(temp_name,user_name)=0)
+        {           
+            //fseek(user_ptr,select_user(),SEEK_CUR);//Moving back to start reading from the correct position
+            break;
+        }
+        //else;     
+        i++;
+        if(i==3000)
+        {
+            fprintf(stderr, "%s\n", "The account name you entered is incorrect, <try again>");
+            exit(EXIT_FAILURE);
+        }
+    }
+    if(get_count==1)
+        rewind(user_ptr);
+    else
+    {
+        fseek(user_ptr,-2L,SEEK_CUR);//Moving backward twice (escape new ling and string terminator)
+        while((ch=fgetc(user_ptr))!='\n'&&ch!=EOF)      
+        fseek(user_ptr,-2L,SEEK_CUR);//moving backward twice since the while statement causes a single forward movement
+                                    //to prevent reading of just one character that leads to infinite loop
+    }   
+    fflush(user_ptr);//needed to clear buffer to prevnet ftell from reading wrong values from text files.
+    return ftell(user_ptr);
     if(fclose(user_ptr))
     {
         fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
