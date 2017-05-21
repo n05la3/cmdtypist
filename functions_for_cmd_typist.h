@@ -735,3 +735,26 @@ long int select_user(void)
     }
 
 }
+
+/*Reads pariticular user information and stores in a global static variable user_info
+using the fact that the end of each user information ends in new line*/ 
+void get_user_name(void)
+{
+	char name_ch;
+	u=0;
+	char ch;
+	FILE *fp;
+	if((fp=fopen("./speed/user_speed.info","r"))==NULL)
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+		exit(EXIT_FAILURE);
+	}
+	while((name_ch=getc(fp))!='\n')
+		putchar(name_ch);
+	//printf(""RESET"\n");	
+	if(fclose(fp))
+		{
+			fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+		    exit(EXIT_FAILURE);
+		}	
+}
