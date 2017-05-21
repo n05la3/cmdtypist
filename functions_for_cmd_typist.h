@@ -766,5 +766,21 @@ wants to create an account with. Also reads system time and date and wite agains
 void accounts_create(void)
 	{
 
+		FILE *fp;
+		if((fp=fopen("user.info","a+"))==NULL)
+		{
+			fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+			exit(EXIT_FAILURE);
+		}
 
+		strcpy(user_info,user_name); 	
+		strcat(user_info,__DATE__);
+		strcat(user_info,__TIME__);
+
+		fprintf(fp, "%s", user_info);
+		if(fclose(fp))
+		{
+			fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+		    exit(EXIT_FAILURE);
+		}
 	}
