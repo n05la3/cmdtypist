@@ -760,3 +760,11 @@ void get_user_name(void)
 		    exit(EXIT_FAILURE);
 		}	
 }
+
+/*Reads user information already opened by main, writes to it the name with which the user
+wants to create an account with. Also reads system time and date and wite agains that user name*/ 
+void accounts_create(void)
+	{
+
+
+	}
