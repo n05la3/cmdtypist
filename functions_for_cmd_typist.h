@@ -749,7 +749,8 @@ void get_user_name(void)
 		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
 		exit(EXIT_FAILURE);
 	}
-	while((name_ch=getc(fp))!='\n')
+	printf(""GREEN"                              ");
+	while((name_ch=getc(fp))!='\n'&&name_ch!=EOF)
 		putchar(name_ch);
 	//printf(""RESET"\n");	
 	if(fclose(fp))
