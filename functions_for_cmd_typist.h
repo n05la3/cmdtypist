@@ -776,6 +776,8 @@ void accounts_create(void)
 		strcpy(user_info,user_name); 	
 		strcat(user_info,__DATE__);
 		strcat(user_info,__TIME__);
+		user_info[strlen(user_info)]='\n'; 
+		user_info[strlen(user_info)]='\0'; 
 
 		fprintf(fp, "%s", user_info);
 		if(fclose(fp))
