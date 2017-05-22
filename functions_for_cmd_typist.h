@@ -842,10 +842,12 @@ extern void waiting(char *wait_style)//style in waiting for input.
 			printf("%s","." );			
 	}
 
+/*Display the total number of lessons available for the user to make a choice*/
 extern void lesson_list(void)
 	{
 		srand((unsigned)time(NULL));
-		unsigned short n=rand()%14;
+		unsigned short n=rand()%17;
+		system("clear");
 		puts("LESSONS, use command <select 'lesson number' to make a choice: "
 			"\n1:  Beginner lessons"
 			"\n2:  Shell programming"
@@ -860,5 +862,26 @@ extern void lesson_list(void)
 			"\n11: Coding in python"
 			"\n12: Coding in c++"
 			"\n13: Random word typing"
-			"\n14: Mixed lessons");
+			"\n14: Capital letter training"
+			"\n15: Mixed lessons");
+			switch(n)
+			{
+				case 1:
+					printf("%s", ":: Go over your session speed analysis, \'time starts when you start\'\n");
+					break;
+				case 2:
+					printf("%s",":: All the lessons in this program are informative, type and learn!!!\n");
+					break;
+				case 3:
+					printf("%s",":: When a line in session turns blue, that's last line for that session\n");
+					break;
+				case 4:
+					printf("%s",":: Consult the ./speed/user_speed.info file to get your saved speed details\n");
+					break;
+				case 5: 
+					printf("%s",":: Use the \"help command\" to get details of any command when in doubt\n");
+					break;
+				case 6:
+					printf("%s\n",":: Use tab key during lesson session to exit and get your instant speed");
+					break;
 	}
