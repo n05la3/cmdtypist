@@ -809,3 +809,11 @@ void name_modify(char *name)
 	}
 	strcat(name,".");
 }
+
+/*Clears a the number of characters passed to it as parameter*/
+extern void letter_clear(int n)
+	{
+		int i;
+		for(i=1;i<=n;i++)
+			printf("\b \b");//implementing a destructive backspace
+	}
