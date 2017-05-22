@@ -793,3 +793,19 @@ void accounts_create(void)
 		}
 	}
 
+
+/*Searching the name for space to replace with |*/
+void name_modify(char *name)
+{
+	u=0;
+	while(u<=15)
+	{
+		if(name[u]==' ')//searching for ' ' in the name string
+		{
+			name[u]='|';//and replacing with |
+			break;
+		}
+		u++;
+	}
+	strcat(name,".");
+}
