@@ -858,6 +858,5 @@ extern void lesson_list(void)
 			"\n11: Coding in python"
 			"\n12: Coding in c++"
 			"\n13: Random word typing"
-			"\n14: Capital letter training"
-			"\n15: Mixed lessons");
+			"\n14: Mixed lessons");
 	}
