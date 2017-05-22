@@ -818,9 +818,9 @@ extern void letter_clear(int n)
 			printf("\b \b");//implementing a destructive backspace
 	}
 
-extern void waiting(void)//style in waiting for input.
+extern void waiting(char *wait_style)//style in waiting for input.
 	{
-		    printf("%s","waiting");
+		    printf("%s",wait_style);
 		    fflush(stdout);
 			sleepf(1);
 			printf("%s","." );
