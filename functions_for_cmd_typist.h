@@ -22,6 +22,12 @@
 #include<string.h>
 #include<time.h>
 #include<ctype.h>
+int last_user_ptr;
+int avg_speed;
+char user_name[SIZE_NAME];//holds the name of the user.
+FILE *user_ptr;
+char user_info[360]; //string to store user details.
+char temp_name[360];//temporary store for user name
 char time_set=0;
 int argc=1;
 char file_to_read[19];//name of lesson file to read from
@@ -786,3 +792,4 @@ void accounts_create(void)
 		    exit(EXIT_FAILURE);
 		}
 	}
+
