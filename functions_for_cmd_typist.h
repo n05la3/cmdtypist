@@ -841,3 +841,23 @@ extern void waiting(char *wait_style)//style in waiting for input.
 			sleepf(1);
 			printf("%s","." );			
 	}
+
+extern void lesson_list(void)
+	{
+		puts("LESSONS, use command <select 'lesson number' to make a choice: "
+			"\n1:  Beginner lessons"
+			"\n2:  Shell programming"
+			"\n3:  Linux commands"
+			"\n4:  Cmd commands"
+			"\n5:  Learning numbers"
+			"\n6:  Noslac's notes on computing"
+			"\n7:  History of Cameroon"
+			"\n8:  Getting acquanted to symbols"
+			"\n9:  Coding in c"
+			"\n10: Coding in java"
+			"\n11: Coding in python"
+			"\n12: Coding in c++"
+			"\n13: Random word typing"
+			"\n14: Capital letter training"
+			"\n15: Mixed lessons");
+	}
