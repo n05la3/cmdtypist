@@ -817,3 +817,27 @@ extern void letter_clear(int n)
 		for(i=1;i<=n;i++)
 			printf("\b \b");//implementing a destructive backspace
 	}
+
+extern void waiting(void)//style in waiting for input.
+	{
+		    printf("%s","waiting");
+		    fflush(stdout);
+			sleepf(1);
+			printf("%s","." );
+			fflush(stdout);
+			sleepf(1);
+			printf("%s","." );
+			fflush(stdout);
+			sleepf(1);
+			printf("%s","." );
+			letter_clear(3);
+		    fflush(stdout);
+			sleepf(1);
+			printf("%s","." );
+			fflush(stdout);
+			sleepf(1);
+			printf("%s","." );
+			fflush(stdout);
+			sleepf(1);
+			printf("%s","." );			
+	}
