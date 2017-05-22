@@ -844,6 +844,8 @@ extern void waiting(char *wait_style)//style in waiting for input.
 
 extern void lesson_list(void)
 	{
+		srand((unsigned)time(NULL));
+		unsigned short n=rand()%14;
 		puts("LESSONS, use command <select 'lesson number' to make a choice: "
 			"\n1:  Beginner lessons"
 			"\n2:  Shell programming"
