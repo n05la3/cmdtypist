@@ -846,7 +846,7 @@ extern void waiting(char *wait_style)//style in waiting for input.
 extern void lesson_list(void)
 	{
 		srand((unsigned)time(NULL));
-		unsigned short n=rand()%17;
+		unsigned short n=rand()%14;
 		system("clear");
 		puts("LESSONS, use command <select 'lesson number' to make a choice: "
 			"\n1:  Beginner lessons"
@@ -864,6 +864,7 @@ extern void lesson_list(void)
 			"\n13: Random word typing"
 			"\n14: Capital letter training"
 			"\n15: Mixed lessons");
+		printf(""TIP_COLOR"");
 			switch(n)
 			{
 				case 1:
@@ -908,4 +909,6 @@ extern void lesson_list(void)
 				default:
 					printf("%s",":: You will only get better if you type more\n" );
 					break;
+			}		
+		printf(""RESET"");	
 	}
