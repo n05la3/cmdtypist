@@ -890,5 +890,16 @@ extern void lesson_list(void)
 				case 8:
 					printf("%s\n",":: If a novice typist, say the letters as you type. Will help you memorise faster");
 					break;
-					
+				case 9: 
+					printf("%s\n", ":: Writing manually to the user info file distorts display!!!");
+					break;
+				case 10:
+					printf("%s\n", ":: Use ENTER at the end of a line to move to next line");
+					break;
+				case 11:
+					printf("%s\n", ":: Feel free to use backspace key to erase wrongly typed letters");
+					break;				
+				case 12:
+					printf("%s\n", ":: Paste your own lesosn in myown.txt in program directory and type");
+					break;
 	}
