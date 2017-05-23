@@ -960,6 +960,8 @@ void seconds_to_hms(long int time_in_seconds, char *time)
 		time_in_seconds = t%60;
 		if(hr>0)
 		sprintf(time,"%ld%s:%ld%s:%ld%s", hr,(hr>1)? "hrs":"hr",min,(min>1)? "mins":"min",time_in_seconds,(time_in_seconds>1)? "secs":"sec");//modify printing display
+		else if(min>0)
+		sprintf(time,"%ld%s:%ld%s", min,(min>1)? "mins":"min",time_in_seconds,(time_in_seconds>1)? "secs":"sec");
 		else 
 		sprintf(time,"%ld%s", time_in_seconds,(time_in_seconds>1)? "secs":"sec");
 	}
