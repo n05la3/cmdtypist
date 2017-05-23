@@ -912,3 +912,12 @@ extern void lesson_list(void)
 			}		
 		printf(""RESET"");	
 	}
+
+//Initial settings of cmdtypist.
+void reset_default_config(char *raw, int argc_cmd)
+{
+	write_myown_config(1);
+	write_conf_mode(1);
+	write_conf_block_read(4);
+	sound_config_write(0);
+}
