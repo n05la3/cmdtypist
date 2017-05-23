@@ -902,4 +902,10 @@ extern void lesson_list(void)
 				case 12:
 					printf("%s\n", ":: Paste your own lesosn in myown.txt in program directory and type");
 					break;
+				case 13:
+					printf("%s\n", ":: It is fun playing in random mode, give it a try \"cmdtypist mkrand\"");
+					break;
+				default:
+					printf("%s",":: You will only get better if you type more\n" );
+					break;
 	}
