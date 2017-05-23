@@ -884,4 +884,11 @@ extern void lesson_list(void)
 				case 6:
 					printf("%s\n",":: Use tab key during lesson session to exit and get your instant speed");
 					break;
+				case 7:
+					printf("%s\n",":: Focus much more on your accuracy, you'll get better");
+					break;
+				case 8:
+					printf("%s\n",":: If a novice typist, say the letters as you type. Will help you memorise faster");
+					break;
+					
 	}
