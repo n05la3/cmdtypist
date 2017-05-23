@@ -920,4 +920,5 @@ void reset_default_config(char *raw, int argc_cmd)
 	write_conf_mode(1);
 	write_conf_block_read(4);
 	sound_config_write(0);
+	write_message_conf(0);
 }
