@@ -947,3 +947,19 @@ void reset_default_config(char *raw, int argc_cmd)
 		}
 	}
 }
+
+/*Function converts time passed to it in seconds and stores the converted 
+time to hrs, mins and secs, then stores the resulting string to the string argument 
+time also passed to it as a second parameter*/
+void seconds_to_hms(long int time_in_seconds, char *time)
+	{
+		long hr, min, t;
+		hr = time_in_seconds/3600;
+		t = time_in_seconds%3600;
+		min = t/60;
+		time_in_seconds = t%60;
+		if(hr>0)
+		sprintf(time,"%ld%s:%ld%s:%ld%s", hr,(hr>1)? "hrs":"hr",min,(min>1)? "mins":"min",time_in_seconds,(time_in_seconds>1)? "secs":"sec");//modify printing display
+		else 
+		sprintf(time,"%ld%s", time_in_seconds,(time_in_seconds>1)? "secs":"sec");
+	}
