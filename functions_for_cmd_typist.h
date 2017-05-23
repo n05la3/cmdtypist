@@ -921,4 +921,29 @@ void reset_default_config(char *raw, int argc_cmd)
 	write_conf_block_read(4);
 	sound_config_write(0);
 	write_message_conf(0);
+	if(argc_cmd==3)
+	{
+		if(strcmp(raw,"raw")==0)
+		{
+			printf("%s\n", "Raw reset, resets everything including speed history; continue? [y/n]:");
+			if(get_only_char()=='n')
+				exit(EXIT_SUCCESS);
+			else
+			{
+				FILE *fp;
+				if((fp=fopen("./speed/user_speed.info","w+"))==NULL)
+				{
+					fprintf(stderr, "%s\n", "Could not reset, some files are missing");
+					exit(EXIT_FAILURE);
+				}
+				fclose(fp);
+				if((fp=fopen("my_own.txt","w+"))==NULL)
+				{
+					fprintf(stderr, "%s\n", "Could not reset, some files are missing");
+					exit(EXIT_FAILURE);
+				}
+				fclose(fp);
+			}
+		}
+	}
 }
