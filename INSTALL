@@ -21,12 +21,14 @@ using the command
 	begin; cmdtypist argument1 argument2 argument3
 
 where argument is a valid cmdtypist argument, to know all valid arguments run
-the cmdtypist help command.	
+the cmdtypist help command or consult the help file which comes with the 
+program.
 
-Note that the begin command must be followed by a comma.
+Note that the begin command must be followed by a semicon as shown above.
 begin helps you navigate to cmdtypist directory. Alternative, you can first 
-run begin alone and then run cmdtypist.
+run begin to get into cmdtypist direcoty and then run cmdtypist.
 
 If running cmdtypist produces a "Fatal error: some files are missing error"
-then you probably did not run with begin; 
-cmdtypist is installed in home directory	
+then you probably did not run with begin; or some files have been deleted or 
+cannot be found.
+
