@@ -1,0 +1,1 @@
+#include"functions_for_cmd_typist.h"
