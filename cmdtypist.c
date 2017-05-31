@@ -13,6 +13,11 @@ void select_lesson(int argc_cmd)
 			    if((strncmp(firstarg,"se",2)==0||strcmp(firstarg,"sel")==0||strcmp(firstarg,"sele")==0||strcmp(firstarg,"selec")==0)&&strcmp(firstarg,"select")!=0)
 			    											//Making suggestion to help user prevent errors.
 						fprintf(stderr, "\n%s\n", "Did you mean \"select usernumber\"");
+				else if(ch!=1&&strcmp(firstarg,"select")==0)
+				  printf("%s", "Lesson number cannot contain symbols or alphas\n");
+				else if((lesson_choice<1||lesson_choice>20)&&strcmp(firstarg,"select")==0)
+					fprintf(stderr, "%s %d\n", "No lesson entry for ",lesson_choice);
+				else printf("%s\n", "Command not found");
 			}
 		}
 
