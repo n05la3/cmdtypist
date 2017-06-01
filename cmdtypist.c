@@ -26,18 +26,6 @@ void select_lesson(int argc_cmd)
 			fprintf(stderr, "%s\n", "Invalid number of arguments, consult \"cmdtypist --help\" for more");
 			exit(EXIT_FAILURE);
 		}
-			/*
-			if(argc_cmd==3)
-				if(strncmp(argv[2],"select",6)!=0||lesson_choice<1||lesson_choice>20)
-				{
-					fprintf(stderr, "%s\n", "Command not found\n");
-					if(strncmp(argv[2],"se",2))
-						fprintf(stderr, "%s\n", "Did you mean \"select\"");
-					else if(lesson_choice<1||lesson_choice>20)
-						fprintf(stderr, "%s %d\n", "No lesson entry for ",lesson_choice);
-					//else if(ch!=1)
-				        printf("%s", "Lesson number cannot contain symbols or alpha letters.\n");
-					exit(EXIT_FAILURE);
-				}*/
+			
 		printf("\n");
 	}
