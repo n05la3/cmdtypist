@@ -18,7 +18,7 @@ void select_lesson(int argc_cmd)
 				else if((lesson_choice<1||lesson_choice>20)&&strcmp(firstarg,"select")==0)
 					fprintf(stderr, "%s %d\n", "No lesson entry for ",lesson_choice);
 				else printf("%s\n", "Command not found");
-				while(ch=getchar()!='\n');//disposing off wrong input string.
+				while(ch=getchar()!='\n');//flushing off wrong string
 			}
 		}
 		else
