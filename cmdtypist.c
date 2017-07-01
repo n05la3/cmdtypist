@@ -2,7 +2,6 @@
 
 void select_lesson(int argc_cmd)
 	{
-
 		if(argc_cmd>0&&argc_cmd<4)//checking on the command line argument.
 		{				
 			char ch;//
@@ -57,3 +56,4 @@ void urs_or_cchl(void)
 		exit(EXIT_FAILURE);
 	}
 }
+
