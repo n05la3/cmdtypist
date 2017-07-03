@@ -1,4 +1,5 @@
 CMDTYPIST
+---------
 
 It is a programmer oriented command line typing tutor written in c, 
 designed to work on the gnome-terminal, xterm and uxterm and other consoles.  It 
