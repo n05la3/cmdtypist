@@ -1,6 +1,6 @@
 CMDTYPIST
 
-CMDTYPIST is a programmer oriented command line typing tutor written in c, 
+It is a programmer oriented command line typing tutor written in c, 
 designed to work on the gnome-terminal, xterm and uxterm and other consoles.  It 
 consists true programming lessons, so the user can type and learn at the same time.
 
