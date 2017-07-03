@@ -1,13 +1,8 @@
-				CMDTYPIST
+CMDTYPIST
 
 CMDTYPIST is a programmer oriented command line typing tutor written in c, 
 designed to work on the gnome-terminal, xterm and uxterm and other consoles.  It 
 consists true programming lessons, so the user can type and learn at the same time.
-
-GETTING CMDTYPIST
------------------
-
-See INSTALL for install instructions
 
 License
 -------
@@ -25,8 +20,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Authors
--------
+Author
+------
 
 Chiatiah Calson
 
