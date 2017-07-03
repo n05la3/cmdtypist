@@ -1,9 +1,13 @@
-Introduction
-------------
+				CMDTYPIST
 
-cmdtypist is a programmer oriented terminal typing tutor designed to work 
-on the gnome-terminal, xterm and uxterm and others written in c. It consists
-true programming lessons, so the user can type and learn at the same time.
+CMDTYPIST is a programmer oriented command line typing tutor written in c, 
+designed to work on the gnome-terminal, xterm and uxterm and other consoles.  It 
+consists true programming lessons, so the user can type and learn at the same time.
+
+GETTING CMDTYPIST
+-----------------
+
+See INSTALL for install instructions
 
 License
 -------
@@ -21,23 +25,43 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Authors
+-------
+
+Chiatiah Calson
+
 General Features
 ----------------
 
 Extremely fast, never again type faster than your type tutor!!!
 
-Has lessons for non programmers and c,c++,java/android programmers
+CMDTYPIST comes bundled with a good number of lessons for both programmers
+and non-programmers. The non programmer lessons help train the user on 
+basic typing techiques and the programmer lessons help both the programmer
+and non programmers to become better at typing.
 
 An accurate speed algorithm in character per minute (CPM) and an approximate
-in word per minute WPM(accuracy -+0.35)
+in word per minute WPM (accuracy -+0.35)
 
 Terminal is manipulated to print green a correct character and red a wrong
-character
+character. This makes cmdtypist command line tutor very appealing. The user
+easily knows where he has gone wrong and can undo all errors.
 
-Keeps a record of the number of wrong and correct characters
+Keeps a record of the number of wrong and correct characters; cmdtypist is able
+tracks the number of wrong characters and displays at the end of each session.
 
 Creates a text file to keep a account of the user speed in details(date,
-numer of errors, speed in CPM and WPM and time elapsed) for each session.
+numer of errors, speed in CPM and WPM and time elapsed) for each session. Hence, 
+the user can always keep track of his typing speed from the very first day.
+
+NOTE: cmdtypist makes a periodic check once a month, on the size of the 
+speed.info file, and when it has reached a certain length, on a confirmed prompt
+will automatically rename or delete the the existing file and hen create a new one.
+
+
+CMDTYPIST equally contains a "myown.txt" file, where a user can input an optional
+text he wants to type. With myown.txt, the user is limited to typing only in 
+standard mode.
 
 
 Command Line Features
