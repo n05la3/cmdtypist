@@ -1,6 +1,6 @@
 
 			CMD TYPIST HELP MENU
-			====================
+			--------------------
 
 Cmdtypist Commands:
 ------------------
@@ -14,7 +14,7 @@ Creates a new user and stores username in the user_speed text file. Running this
 List available lessons for typing. Whenever the lessons are listed, the command select "lesson number" has to be followed to select lesson.
 
 3) cmtypist --help: 
-  ---------------
+  ----------------
   Use this command if you find any difficulty. It display every help a user will need before and while using cmtypist.
 
 4) cmtypist man:
@@ -28,8 +28,8 @@ This command automatically selects a lesson from lesson file for user to type wi
 6) cmdtypist sound: 
    ---------------
 This command is used to activate or deactivate a beep on wrong character press
-	cmdtypist sound --on: Activates beep
-	cmdtypist sound --off: Deacativates beep
+	*cmdtypist sound --on: Activates beep
+	*cmdtypist sound --off: Deacativates beep
 
 7) cmdtypist /myown: 
    ----------------
@@ -55,12 +55,12 @@ This command sets a the number of lines to type per lesson to "lesson number". L
 12) cmdtypist reset: 
     ---------------
 Resets to cmdtypist default settings, this command is for a soft reset, which does not affect user files like changing user name. 
-	- cmdtypist reset raw: 
-	  -------------------
-	  It hard resets cmdtypist, so that even user name and all speed saved details are deleted. This command should be used only when fully understood.
+13) cmdtypist reset raw: 
+	-------------------
+It hard resets cmdtypist, so that even user name and all speed saved details are deleted. This command should be used only when fully understood.
 
-	  	HELP IN QUESTIONS AND ANSWERS
-	  	=============================	
+							 	HELP IN QUESTIONS AND ANSWERS
+	  							
 1) What does it mean to type in standard mode? 
 	Answer:
 	-Typing in standard mode simply means to type the lesson in the manner in which it appears in the lesson file, that is from the first character to the last. In this mode, typing is intercepted by block lesson result and typing again continues from where it ended.
@@ -91,4 +91,3 @@ Resets to cmdtypist default settings, this command is for a soft reset, which do
 7) Do i have permission to copy lessons in the cmdtypist lesson file? 
 	Answer: 
 	Yes the lesson file is open source, but copy should be done under the terms of the GNU GPL version 3 or later.
-8)
