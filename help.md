@@ -1,6 +1,5 @@
-
-			CMD TYPIST HELP MENU
-			--------------------
+CMD TYPIST HELP MENU
+--------------------
 
 Cmdtypist Commands:
 ------------------
@@ -28,8 +27,8 @@ This command automatically selects a lesson from lesson file for user to type wi
 6) cmdtypist sound: 
    ---------------
 This command is used to activate or deactivate a beep on wrong character press
-	*cmdtypist sound --on: Activates beep
-	*cmdtypist sound --off: Deacativates beep
+	-cmdtypist sound --on: Activates beep
+	-cmdtypist sound --off: Deacativates beep
 
 7) cmdtypist /myown: 
    ----------------
@@ -55,17 +54,20 @@ This command sets a the number of lines to type per lesson to "lesson number". L
 12) cmdtypist reset: 
     ---------------
 Resets to cmdtypist default settings, this command is for a soft reset, which does not affect user files like changing user name. 
+
 13) cmdtypist reset raw: 
 	-------------------
 It hard resets cmdtypist, so that even user name and all speed saved details are deleted. This command should be used only when fully understood.
 
-							 	HELP IN QUESTIONS AND ANSWERS
+			HELP IN QUESTIONS AND ANSWERS
 	  							
 1) What does it mean to type in standard mode? 
+	
 	Answer:
 	-Typing in standard mode simply means to type the lesson in the manner in which it appears in the lesson file, that is from the first character to the last. In this mode, typing is intercepted by block lesson result and typing again continues from where it ended.
 
 2) I keep on getting the "Fatal Error, Some files are missing", what's happening?: 
+	
 	Answer: 
 	It's most probably because a file which came with the program is missing or cmdtypist is unable to read because some other program reading it is preventing cmdtypist from accessing it. 
 	- You are most probably running cmdtypist without the begin; command
@@ -74,20 +76,25 @@ It hard resets cmdtypist, so that even user name and all speed saved details are
 	- If problem persists then a file must have been deleted, get a fresh copy of cmdtypist.
 
 3) Sound command produces no beep on wrond characters:
+	
 	Answer: 
 	If the command has been properly typed, then either system volume is low or your terminal does not support beeps or has deactivated beeps.
 
 4) How do i know i have come to the end of a lesson block? 
+	
 	Answer: The last line in each lesson is colored blue. When you type the last character (ENTER) for that line, a session speed is displayed. Take you time to go through the session speed, you are not been timed yet!!!
 
 5) Is it possible to know my speed details for yesterday? if yes, how?
+	
 	Answer:  
 	Yes, all user speed details for as long as he has been typing is stored in the user_speed info file with the last speed boxed. This file is located in the cmdtypist directory.
 
 6) Do i have to set mode to rand each time i want to type in random mode?:
+	
 	Answer: 
 	No, cmdtypist has a .conf file which is used to register user settings. Every other setting the user makes by running the commands above is saved in the .conf file. Use the reset command to revert settings to default when things go wrong!
 
 7) Do i have permission to copy lessons in the cmdtypist lesson file? 
+	
 	Answer: 
 	Yes the lesson file is open source, but copy should be done under the terms of the GNU GPL version 3 or later.
