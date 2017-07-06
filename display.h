@@ -95,12 +95,13 @@ extern void lesson_list(void)
 
 //modifies the manner in which sesson speed is displayed
 //5 is the accepted average number of letters in a word	
-void session_style(unsigned int session_time, unsigned short wrongly_typed,float typed)
+void session_style(unsigned int session_time, unsigned int wrongly_typed,float typed)
 {
 	float raw_speed=0.0,adj_speed=0.0;
 	raw_speed= ((float) typed*60.0f)/(float)session_time;
-	adj_speed= (float) ((typed-wrongly_typed)*60.0)/(float)session_time;
+	adj_speed= (float) ((typed-wrongly_typed)*60.0f)/(float)session_time;
 	char time_conversion[36];//stores converted time by seconds_hms()
+	system("clear");
 	printf(""RESET"\n%s\n", "For better speed follow up, consult \"user_speed.info\" file in speed directory");
 	puts("-------------------------------+-----------+------------------------------------");
 	puts("-------------------------------SESSION SPEED------------------------------------");//printing session heading
@@ -111,7 +112,9 @@ void session_style(unsigned int session_time, unsigned short wrongly_typed,float
 	//fprintf(fp, "\t|%d%s TIME: %s\n",wrongly_typed,(wrongly_typed==0)? "(NO Error)":(wrongly_typed==1)? "ERROR":"ERRORS",time_conversion);
 	raw_speed= ((float) typed*60.0f)/(float)session_time;
 	adj_speed= (float) ((typed-wrongly_typed)*60.0)/(float)session_time;		
-	fprintf(stdout, "\t|ERROR(s):"RED"%d"RESET" TIME: "SPEED_COLOR"%s"RESET" Accuracy: "SPEED_COLOR"%.2f%%"RESET"\n",wrongly_typed,time_conversion,((float) typed-(float)wrongly_typed)/(float) typed*100.0f);
-	fprintf(stdout, "\t|%s"SPEED_COLOR"%.2fCPM"RESET" ~= "GREEN"%.2fWPM"RESET" \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5);
+	fprintf(stdout, "\t|ERROR(s):"RED"%u"RESET" TIME: "SPEED_COLOR"%s"RESET" Accuracy: "SPEED_COLOR"%.2f%%"RESET"\n",wrongly_typed,time_conversion,(adj_speed/raw_speed)*100.0f);
+	fprintf(stdout, "\t|%s"SPEED_COLOR"%.2fCPM"RESET" ~= "GREEN"%.2fWPM"RESET" \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5.0f);
 	fprintf(stdout, "%s\n\n", "\t+---------------------------------------------------------------+");
 }
+
+

@@ -82,11 +82,10 @@ void write_user_speed(unsigned int session_time, unsigned int wrongly_typed, flo
 	seconds_to_hms(session_time,time_conversion);
 	//fprintf(fp, "\t|%d%s TIME: %s\n",wrongly_typed,(wrongly_typed==0)? "(NO Error)":(wrongly_typed==1)? "ERROR":"ERRORS",time_conversion);
 	raw_speed= ((float)typed*60.0f)/(float)session_time;
-	adj_speed= (float) (((float)typed-wrongly_typed)*60.0)/(float)session_time;		
-	fprintf(fp, "\t|ERROR(s):%d TIME: %s SPEED: ~%.3fWPM Accuracy: %.2f%%\n",wrongly_typed,time_conversion,raw_speed/5,((float)typed-(float)wrongly_typed)/(float)typed*100.0f);
-	fprintf(fp, "\t|%s%.2fCPM ~= %.2fWPM \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5);
+	adj_speed= (float) (((float)typed-wrongly_typed)*60.0f)/(float)session_time;		
+	fprintf(fp, "\t|ERROR(s):%u TIME: %s SPEED: ~%.3fWPM Accuracy: %.2f%%\n",wrongly_typed,time_conversion,raw_speed/5.0f,(adj_speed/raw_speed)*100.0f);
+	fprintf(fp, "\t|%s%.2fCPM ~= %.2fWPM \n", "AVERAGE SPEED: ",adj_speed,adj_speed/5.0);
 	fprintf(fp, "%s\n\n", "\t+---------------------------------------------------------------+");	
-	system("clear");
 	if(fclose(fp))
 	{
 		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
