@@ -362,9 +362,9 @@ void main_play(int argc_cmd,int *lesson_choice)
 				exit(EXIT_FAILURE);
 			}
 	fseek(noslac_lessonsp,move_lesson_to,SEEK_SET);
+	unsigned short error_store[3000], j=0;//error_store: array of ints to note the index of a wrong character.
 	while(block_count<=(int)(length_to_read/((chars_to_read+1)*block_length)))//testing inorder to read the entire lesson chosen.
 	{
-		unsigned short error_store[3000], j=0;//error_store: array of ints to note the index of a wrong character.
 		num_of_chars_typed=0;
 		char time_checker=0;//changes back to zero after every block typing
 		/*goes =reads a certain number of characters in the file using a loop determined 
@@ -414,7 +414,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 			while(i<=chars_to_read+1)//adding 1 for the extra enter key after the 77 letters are entered.
 			{
 				int u=0;//loop counter
-				if((ch=get_char_necho())!='\n'&&ch!=EOF)//using getche to prevent printing of enter key.
+				if((ch=getche())!='\n'&&ch!=EOF)//using getche to prevent printing of enter key.
 				{
 					putchar(ch);
 					if(time_checker==0)//Making sure time is initialized only once 
@@ -494,7 +494,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 		//printf("lines=%d block = %d\n",number_of_lines_count,block_length );
 		if(terminate==1)//exiting on tabs and other systme keys
 		{
-			if(elapsed_time<=0)
+			if(elapsed_time<=10)
 			{
 				fprintf(stderr, "%s\n", "Speed not recorded");
 				exit(EXIT_SUCCESS);
@@ -511,8 +511,8 @@ void main_play(int argc_cmd,int *lesson_choice)
 			if(wrong_letters<0)//optional statement to reduce proberbility of ever having a -ve wrong_letters.
 				wrong_letters=0;
 			get_user_name();//reading user name from file to display in session
-			write_user_speed(elapsed_time,wrong_letters,num_of_chars_typed);//writing user speed to speed file
 			session_style(elapsed_time,wrong_letters,num_of_chars_typed);//printing session speed details
+			write_user_speed(elapsed_time,wrong_letters,num_of_chars_typed);//writing user speed to speed file
 		}
 
 	}
