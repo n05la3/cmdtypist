@@ -115,7 +115,6 @@ extern void write_conf_block_read(unsigned int n)//r is used to record settings 
 		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
 	    exit(EXIT_FAILURE);
 	}
-	printf("Block length changed with success");
 }
 
 extern char sound_config_read(void)//num_value is used to record settings for random and standard play
