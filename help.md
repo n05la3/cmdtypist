@@ -4,6 +4,11 @@ CMD TYPIST HELP MENU
 Cmdtypist Commands:
 ------------------
 
+0) select "lesson-number":
+   ---------------------
+where lesson-number is a valid cmdtypist lesson number. This command is run at the cmdtypist prompt.
+Exampe: Enter command >>select 8, select is the command and 8 is a valid lesson number.
+
 1) cmdtypist mkuser "username":
    --------------------------
 Creates a new user and stores username in the user_speed text file. Running this command erases current name in user_speed file. This command must be run by first time cmdtypist users. This command is mandatory once for every first time user. Running other commands for the first time without running this command will show and error message mandating this command. Running this command when a user name already exist deletes the current user to the new user name specified as second argument. If you want to preserve saved data in the user_speed file, then copy and paste in a different directory or rename it.
@@ -98,3 +103,5 @@ It hard resets cmdtypist, so that even user name and all speed saved details are
 	
 	Answer: 
 	Yes the lesson file is open source, but copy should be done under the terms of the GNU GPL version 3 or later.
+
+NOTE: All prompts ending in [y/n], y=yes and n=no.
