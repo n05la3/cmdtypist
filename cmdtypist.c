@@ -353,16 +353,16 @@ void main_play(int argc_cmd,int *lesson_choice)
 	char linetype[150];//char array to hold the total number of characters to to read from file per line.
 	//lesson_list();
 	//fseek(noslac_lessonsp,25531L,SEEK_SET);//places the pointer to the position of the file to read.
-	unsigned int wrong_letters=0;//sums up the total number of wrong characters entered during program run.
+	int wrong_letters=0;//sums up the total number of wrong characters entered during program run.
 	srand((unsigned)time(NULL));//randomizing seed
 	FILE *noslac_lessonsp;//lesson pointer
 	if((noslac_lessonsp=fopen(file_to_read,"r"))==NULL)
-			{
-				fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
-				exit(EXIT_FAILURE);
-			}
+	{
+		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+		exit(EXIT_FAILURE);
+	}
 	fseek(noslac_lessonsp,move_lesson_to,SEEK_SET);
-	unsigned short error_store[3000], j=0;//error_store: array of ints to note the index of a wrong character.
+	
 	while(block_count<=(int)(length_to_read/((chars_to_read+1)*block_length)))//testing inorder to read the entire lesson chosen.
 	{
 		num_of_chars_typed=0;
@@ -411,6 +411,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 			puts(linetype);//using puts inorder to print the a line and move to the next for the user to follow
 			number_of_lines_count++;
 			i=0;//setting i to 0 to begin new counting.
+			unsigned short error_store[3000], j=0;//error_store: array of ints to note the index of a wrong character.
 			while(i<=chars_to_read+1)//adding 1 for the extra enter key after the 77 letters are entered.
 			{
 				int u=0;//loop counter
@@ -420,8 +421,8 @@ void main_play(int argc_cmd,int *lesson_choice)
 					if(time_checker==0)//Making sure time is initialized only once 
 					{
 						time_checker=1;
-						start_time=(unsigned)time(NULL);//to start timing.
 						wrong_letters=0;//setting errors to 0 to start next typing session
+						start_time=(unsigned)time(NULL);//to start timing.
 					}
 				}
 				if(ch==EOF)
@@ -440,15 +441,17 @@ void main_play(int argc_cmd,int *lesson_choice)
 				}
 				if((ch==127||ch==8)&&i==0)//not using '\b' since most terminals are 'cooked' (keys like backspace are handled by terminal driver)  //checking for both delete and backspace.
 				  letter_clear(adapt_to_ver_read());        
-				else if(ch==127||ch==8)//testing for delete of backspace
+				else if((ch==127||ch==8)&&i>0)//testing for delete of backspace
 				    {
 						i--;//decremting the number of characters entered when backspaced is pressed.
 						letter_clear(adapt_to_ver_read());//clearing the backspace printed and making sure it works with many terminal versions
 						while(u<=j)//counting from u to j, to find if there is a wrong character stored in the error_store array of ints.
 						{
 							if(error_store[u]==i&&wrong_letters>=0)//checking through the array for errased wrong charactes initially entered.
-							{
-								wrong_letters--;//accumulating the number of wrong letters typed
+							{									  //also ensuring before any decrement, wrong_letters>0
+								wrong_letters--;//decrementing the number of wrong letters.
+								/*if(wrong_letters<0)
+									puts("finally got a case\n");*/
 								break;//Ensuring that immediately there is a match, the while loop is escaped for speed.
 							}
 							u++;
@@ -519,3 +522,13 @@ void main_play(int argc_cmd,int *lesson_choice)
 }
 
 
+/*Wrong letters algorithm:
+if a user is at the first position of the line and presses backspace, then, that backspace is simply cleared and i not incremented
+the array error_store[] keeps track of the index(the i position of the wrong character) and increments a counter variable j, which which be used as 
+A stop point in a for loop when this stored inex is searched.
+When ever backspace keyed in(i!=0), i is first decremented and a search is done through out the loop to see if the decremented i was stored in error store,
+if so, then the user is erasing a wrong character, so the wrong_letters is decremented.*/
+
+/*solving the case where wrong_letters shows a messy value
+changing it's type to int and making sure it's always greater than 0
+*/
