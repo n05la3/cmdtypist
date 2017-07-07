@@ -450,8 +450,11 @@ void main_play(int argc_cmd,int *lesson_choice)
 							if(error_store[u]==i&&wrong_letters>=0)//checking through the array for errased wrong charactes initially entered.
 							{									  //also ensuring before any decrement, wrong_letters>0
 								wrong_letters--;//decrementing the number of wrong letters.
-								/*if(wrong_letters<0)
-									puts("finally got a case\n");*/
+								if(wrong_letters<0)
+								{
+									wrong_letters=0;
+									//puts("finally got a case\n");
+								}
 								break;//Ensuring that immediately there is a match, the while loop is escaped for speed.
 							}
 							u++;
