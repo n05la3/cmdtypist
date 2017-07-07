@@ -64,7 +64,7 @@ extern void user_test(void)
 		}
 	}
 
-void write_user_speed(unsigned int session_time, unsigned int wrongly_typed, float typed)//Elapsed time is time taken to type
+void write_user_speed(unsigned int session_time,int wrongly_typed, float typed)//Elapsed time is time taken to type
 {
 
 	FILE* fp;
