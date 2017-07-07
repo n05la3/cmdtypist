@@ -69,10 +69,10 @@ extern void sleepf(int time_to_sleep);//implementing a sleep function
 extern void waiting(char* wait_style);//style in waiting for input.
 extern void lesson_list(void);
 void seconds_to_hms(long int time_in_seconds, char* time);
-void session_style(unsigned int session_time, unsigned int wrongly_typed,float typed);
+void session_style(unsigned int session_time,int wrongly_typed,float typed);
 extern void user_test(void);
 void make_current(FILE* file_to_remove_from);
-void write_user_speed(unsigned int session_time, unsigned int wrongly_typed, float typed);//Elapsed time is time taken to type
+void write_user_speed(unsigned int session_time,int wrongly_typed, float typed);//Elapsed time is time taken to type
 void get_user_name(void);
 void accounts_create(void);
 void write_to_line(char* to_write, FILE* fp);
