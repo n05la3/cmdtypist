@@ -95,7 +95,7 @@ extern void lesson_list(void)
 
 //modifies the manner in which sesson speed is displayed
 //5 is the accepted average number of letters in a word	
-void session_style(unsigned int session_time, unsigned int wrongly_typed,float typed)
+void session_style(unsigned int session_time,int wrongly_typed,float typed)
 {
 	float raw_speed=0.0,adj_speed=0.0;
 	raw_speed= ((float) typed*60.0f)/(float)session_time;
