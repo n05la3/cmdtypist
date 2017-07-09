@@ -372,7 +372,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 		making the lesson each time to be random*/
 		if(mode==0)
 		{
-			unsigned int u=0;//counter
+			int u=0;//counter
 			while(u<=rand()%(length_to_read-((chars_to_read+1)*block_length))&&(ch=getc(noslac_lessonsp))!=EOF)//program feels new
 				u++;
 					do
@@ -445,19 +445,23 @@ void main_play(int argc_cmd,int *lesson_choice)
 				    {
 						i--;//decremting the number of characters entered when backspaced is pressed.
 						letter_clear(adapt_to_ver_read());//clearing the backspace printed and making sure it works with many terminal versions
-						while(u<=j)//counting from u to j, to find if there is a wrong character stored in the error_store array of ints.
+						j=wrong_letters;
+						while(j>u)//counting from u to j, to find if there is a wrong character stored in the error_store array of ints.
 						{
-							if(error_store[u]==i&&wrong_letters>=0)//checking through the array for errased wrong charactes initially entered.
+							//printf("j=%d and u=%d\n", j,u);
+							if(error_store[j]==i)//checking through the array for errased wrong charactes initially entered.
 							{									  //also ensuring before any decrement, wrong_letters>0
 								wrong_letters--;//decrementing the number of wrong letters.
-								if(wrong_letters<0)
+								/*if(wrong_letters<0)
 								{
-									wrong_letters=0;
-									//puts("finally got a case\n");
-								}
+									printf("finally got a case %d\n",wrong_letters);
+									wrong_letters=0;									
+								}*/
+								error_store[j]=-99;//-99 is a value which will never be reached. 
+								//this is to mark the erased index as no longer wrong.
 								break;//Ensuring that immediately there is a match, the while loop is escaped for speed.
 							}
-							u++;
+							j--;
 						}						
 	    		    }
 				else if(i==78&&ch!='\n')
