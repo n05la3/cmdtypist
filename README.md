@@ -8,7 +8,7 @@ _Cmdtypist_ is a programmer oriented typing tutor written in _C_,
 designed to work on the gnome-terminal, xterm and uxterm and other consoles.  It 
 consists true programming lessons, so the user can type and learn at the same time.
 
-![cmdtypist](https://github.com/Noslac/cmd_typist/blob/master/cmtypist.gif)
+![cmdtypist](https://raw.githubusercontent.com/Noslac/cmd_typist/master/cmtypist.gif)
 
 ### DOWNLOAD
 
