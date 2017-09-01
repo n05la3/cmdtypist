@@ -1,0 +1,4 @@
+#!/bin/sh
+cd $HOME/cmdtypist &&
+exec $HOME/cmdtypist/cmd_typist "$@" ||
+echo "oops something went wrong, verify cmdtypist still exist at $HOME/cmdtypist"
