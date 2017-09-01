@@ -26,6 +26,7 @@ Program Size: 2.8MB
 char argv[5][18];
 int main(int argc, char **argv)//argc=command line counter, argv=pointer to pointer to character(command line arguments)
 {
+	lmt_pg_size();
 	name_display();
 	read_message_conf();//welcome message for first time users.
 	int lesson_choice=1;//global variable to hold the number corresponding to the chosen lesson.
@@ -335,6 +336,7 @@ void lesson_position(long *read_this_length,long *point_to,int *my_choice)//sett
 
 void main_play(int argc_cmd,int *lesson_choice)
 {
+	//lmt_pg_size();
 	char terminate=0;
 	long length_to_read;//holds information on how long the text to be read is.
 	long move_lesson_to;
@@ -395,7 +397,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 					if(linetype[i-1]==' '&&linetype[i]==' ')//preventing two consecutive space characters since text read is random.
 						i-=2;
 				if(linetype[i]=='\n')//checking and eliminating newlines to prevent brakes.
-					i--;
+					linetype[i]=' ';
 				if(linetype[i]==EOF)//making sure a line does not contain any end of file character by any chance
 				{
 					fprintf(stderr, "%s\n", "Closed unexpectedly, <possibly a corrupt cmdtypist file OR you haven't placed any text in myown.txt>");
@@ -504,12 +506,16 @@ void main_play(int argc_cmd,int *lesson_choice)
 		//printf("lines=%d block = %d\n",number_of_lines_count,block_length );
 		if(terminate==1)//exiting on tabs and other systme keys
 		{
+			char user_name[81];
 			if(elapsed_time<=10)
 			{
 				fprintf(stderr, "%s\n", "Speed not recorded");
+				printf(""RESET"\n");
 				exit(EXIT_SUCCESS);
 			}
-			get_user_name();
+			get_user_name(user_name);
+			printf(""GREEN"                              ");
+			printf("%s", user_name);
 			if(wrong_letters<0)//optional statement to reduce proberbility of ever having a -ve wrong_letters.
 				wrong_letters=0;
 			write_user_speed(elapsed_time,wrong_letters,num_of_chars_typed);
@@ -518,9 +524,13 @@ void main_play(int argc_cmd,int *lesson_choice)
 		}
 		if(((number_of_lines_count-1)%block_length)==0)
 		{
+			char user_name[81];
+
 			if(wrong_letters<0)//optional statement to reduce proberbility of ever having a -ve wrong_letters.
 				wrong_letters=0;
-			get_user_name();//reading user name from file to display in session
+			printf(""GREEN"                              ");
+			get_user_name(user_name);//reading user name from file to display in session
+			printf("%s", user_name);
 			session_style(elapsed_time,wrong_letters,num_of_chars_typed);//printing session speed details
 			write_user_speed(elapsed_time,wrong_letters,num_of_chars_typed);//writing user speed to speed file
 		}
