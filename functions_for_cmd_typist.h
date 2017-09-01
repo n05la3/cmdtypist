@@ -31,12 +31,11 @@ char ch;//used for character input and testing.
 //char firstarg[8];//global variable to hold the "select argument"
 
 //function prototypes
-void lesson_position(void);//prototype for lesson selection, selects from list of lessons
 void main_play(int argc_cmd,int* lesson_choice);//prototype for the main play, main play board
 void select_lesson(int argc_cmd, int* user_choice);
-void lesson_position(long* read_this_length,long* point_to,int* my_choice);
-void lesson_position(void);
-void select_lesson(int argc_cmd);
+void lesson_position(long* read_this_length,long* point_to,int* my_choice);//prototype for lesson selection, selects from list of lessons
+
+
 void make_current(FILE *file_to_remove_from);
 extern void name_display(void);//functions for display control, location: display.c
 //functions for program configuration, location: config.c
@@ -73,7 +72,7 @@ void session_style(unsigned int session_time,int wrongly_typed,float typed);
 extern void user_test(void);
 void make_current(FILE* file_to_remove_from);
 void write_user_speed(unsigned int session_time,int wrongly_typed, float typed);//Elapsed time is time taken to type
-void get_user_name(void);
+char get_user_name(char *user_name);
 void accounts_create(void);
 void write_to_line(char* to_write, FILE* fp);
 long int select_user(void);
