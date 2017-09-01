@@ -1,0 +1,55 @@
+Download
+--------
+
+You can get cmdtypist by cloning the repo from github, create an empty directory
+called cmdtypist and cd into it. Download cmdtypist into it by running
+		
+		git clone https://github.com/Noslac/cmd_typist
+
+Installation
+------------
+Open a terminal and navigate to the directory containing cmdtypist and all 
+it's files. Run
+
+					./install.sh 
+
+to install cmdtypist
+
+RUNNING:
+-------
+
+If install.sh exited with a success message, then you have installed cmdtypist,
+you can then run the command 
+
+	cmdtypist argument1 argument2 argument3
+
+from any directory. argument1, argument2,... are valid cmdtypist arguments, 
+to know all valid arguments, run the cmdtypist help command or consult the help 
+file which comes with the program.
+
+The above instructions have been tested on ubuntu 14.04 LTS and ubuntu 16.04 LTS
+
+If running cmdtypist produces a "Fatal error: some files are missing" error,
+then you probably did not place all cmdtypist files in the same directory.
+
+UNINSTALL
+---------
+
+If you are having problems with cmdtypist configurations, you can run the 
+command
+	
+		cmdtypist reset raw
+
+to reset settings to default. But if you want to permanently uninstall cmdtypist, 
+proceed below.
+
+To uninstall cmdtypist, open a terminal and cd into directory containing the 
+unintall script by running
+
+		cd $HOME/cmdtypist/uninstall/
+
+finally, run
+
+		./uninstall
+
+to completely remove cmdtypist and associated files.
