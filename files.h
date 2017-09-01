@@ -120,9 +120,11 @@ void accounts_create(void)
 	}
 
 
-/*Reads pariticular user information and stores in a global static variable user_info
-using the fact that the end of each user information ends in new line*/ 
-void get_user_name(void)
+/*
+*Reads pariticular user information and stores in a global static variable user_info
+*using the fact that the end of each user information ends in new line
+*/ 
+char get_user_name(char *user_name)
 {
 	char name_ch;
 	int i=0;
@@ -134,15 +136,17 @@ void get_user_name(void)
 		exit(EXIT_FAILURE);
 	}
 	rewind(fp);
-	printf(""GREEN"                              ");
-	while((name_ch=getc(fp))!='\n'&&name_ch!=EOF)
-		putchar(name_ch);
-	//printf(""RESET"\n");	
+	while((name_ch=getc(fp))!='\n'&&name_ch!=EOF){
+		//putchar(name_ch);
+		user_name[i] = name_ch; 
+		i++;
+	}
+	user_name[i]='\0';	
 	if(fclose(fp))
 		{
 			fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
 		    exit(EXIT_FAILURE);
-		}	
+		}
 }
 /*Selects the user playing based on the name sent to it via command line*/
 long int select_user(void)
@@ -160,7 +164,8 @@ long int select_user(void)
 	int i=0;
 	while(u!=369)
 	{
-		get_user_name();
+		char *user_name;
+		get_user_name(user_name);
 		get_count++;
 		strcpy(temp_name,user_info);
 		u=0;
@@ -367,5 +372,37 @@ extern void remove_ext_ascii(void)
 	{
 		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
 	    exit(EXIT_FAILURE);
+	}
+}
+/*
+*Limit the size of speed file to 10KB; occurs after 429 rounds
+*/
+extern void lmt_pg_size()//limit page size
+{
+	FILE *fp;
+	char user_name[81];
+	if((fp=fopen("./speed/user_speed.info","r"))==NULL){
+		fprintf(stderr, "%s\n", "Fatal Error, Some files are missing");
+		exit(EXIT_FAILURE);
+	}
+	fseek(fp,0,SEEK_END);
+	if(ftell(fp) >= 100000){
+		fprintf(stderr, "%s\n", "speed.info file in ~/cmtypist/speed has grown too large, copy and save if you wish to preserve it\n");
+		printf("\n:The speed.info file will be cleared, continue: [y/n]:");
+		if(get_only_char()!='n'){
+			get_user_name(user_name);
+			if((fp = freopen("./speed/user_speed.info","w+", fp))==NULL){
+				fprintf(stderr, "%s\n", "unable to reset speed.info file, alternatively run 'cmdtypist rest raw to fix this'\n");
+				exit(EXIT_FAILURE);
+			}
+			rewind(fp);
+			fputs(user_name,fp);
+			fputc('\n',fp);
+			rewind(fp);
+		}
+	}
+	if(fclose(fp)){
+		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+	    	exit(EXIT_FAILURE);
 	}
 }
