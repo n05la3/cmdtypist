@@ -66,7 +66,20 @@ extern void user_test(void)
 
 void write_user_speed(unsigned int session_time,int wrongly_typed, float typed)//Elapsed time is time taken to type
 {
-
+	time_t timer = time(NULL);
+	char time_nw[18];
+	strcpy(time_nw, ctime(&timer));
+	short i=0;
+	/*
+	*removing trailing newline
+	*/
+	while(i<=200){
+		if(time_nw[i]=='\n'){
+			time_nw[i] = '\0';
+			break;
+		}
+		i++;
+	}
 	FILE* fp;
 	char time_conversion[36];//stores converted time by seconds_hms()
 	if((fp=fopen("./speed/user_speed.info","r+"))==NULL)
@@ -78,7 +91,7 @@ void write_user_speed(unsigned int session_time,int wrongly_typed, float typed)/
 	float adj_speed=0;//holds the adjusted speed
 	make_current(fp);
 	fseek(fp,0L,SEEK_END);//moving to end of file
-	fprintf(fp, "\t+------------------%s %s %s----------------------+\n", __DATE__,"at",__TIME__);//printing date and time when the test is done
+	fprintf(fp, "\t+------------------ %s -------------------+\n",time_nw);//printing date and time when the test is done
 	seconds_to_hms(session_time,time_conversion);
 	//fprintf(fp, "\t|%d%s TIME: %s\n",wrongly_typed,(wrongly_typed==0)? "(NO Error)":(wrongly_typed==1)? "ERROR":"ERRORS",time_conversion);
 	raw_speed= ((float)typed*60.0f)/(float)session_time;
@@ -242,6 +255,7 @@ void reset_default_config(char *raw, int argc_cmd)
 			}
 		}
 	}
+	else printf("%s\n", "Soft reset successful");
 }
 
 
