@@ -98,6 +98,20 @@ extern void lesson_list(void)
 void session_style(unsigned int session_time,int wrongly_typed,float typed)
 {
 	float raw_speed=0.0,adj_speed=0.0;
+	time_t timer = time(NULL);
+	char time_nw[18];
+	strcpy(time_nw, ctime(&timer));
+	short i=0;
+	/*
+	*removing trailing newline
+	*/
+	while(i<=200){
+		if(time_nw[i]=='\n'){
+			time_nw[i] = '\0';
+			break;
+		}
+		i++;
+	}
 	raw_speed= ((float) typed*60.0f)/(float)session_time;
 	adj_speed= (float) ((typed-wrongly_typed)*60.0f)/(float)session_time;
 	char time_conversion[36];//stores converted time by seconds_hms()
@@ -107,7 +121,7 @@ void session_style(unsigned int session_time,int wrongly_typed,float typed)
 	puts("-------------------------------SESSION SPEED------------------------------------");//printing session heading
 	puts("-------------------------------+-----------+------------------------------------");
 	printf("**************                                                     *************\n");
-	fprintf(stdout, "\t+------------------%s %s %s----------------------+\n", __DATE__,"at",__TIME__);//printing date and time when the test is done
+	fprintf(stdout, "\t+----------------- %s --------------------+\n", time_nw);//printing date and time when the test is done
 	seconds_to_hms(session_time,time_conversion);
 	//fprintf(fp, "\t|%d%s TIME: %s\n",wrongly_typed,(wrongly_typed==0)? "(NO Error)":(wrongly_typed==1)? "ERROR":"ERRORS",time_conversion);
 	raw_speed= ((float) typed*60.0f)/(float)session_time;
