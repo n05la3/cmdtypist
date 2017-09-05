@@ -386,6 +386,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 		while(number_of_lines_count<=block_length)//testing for number of lines to read.
 		{
 			i=0;
+			char endl = guess(14, 33);//endl holds the char to end a line in place of usual '\n'
 			while(i<=chars_to_read)//test on i to get 77 characters. the screen size is exactly 77 characters.
 			{
 				linetype[i]=getc(noslac_lessonsp);//getting characters and placing in the linetype array.
@@ -396,8 +397,13 @@ void main_play(int argc_cmd,int *lesson_choice)
 				if(i>0)
 					if(linetype[i-1]==' '&&linetype[i]==' ')//preventing two consecutive space characters since text read is random.
 						i-=2;
-				if(linetype[i]=='\n')//checking and eliminating newlines to prevent brakes.
-					linetype[i]=' ';
+				//checking and eliminating newlines to prevent brakes.
+				if(linetype[i]=='\n'){
+
+					linetype[i] = endl;
+					linetype[++i] = ' ';
+
+				}	
 				if(linetype[i]==EOF)//making sure a line does not contain any end of file character by any chance
 				{
 					fprintf(stderr, "%s\n", "Closed unexpectedly, <possibly a corrupt cmdtypist file OR you haven't placed any text in myown.txt>");
