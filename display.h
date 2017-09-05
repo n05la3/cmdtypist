@@ -25,10 +25,15 @@ extern void name_display(void)
     sleepf(1);
 }
 
+extern short guess(int min, int max)
+{
+	srand((unsigned)time(NULL));
+	return (rand() % min) + max;
+}
+
 extern void lesson_list(void)
 	{
-		srand((unsigned)time(NULL));
-		unsigned short n=rand()%13;
+		unsigned short n=guess(13,0);
 		system("clear");
 		puts("LESSONS, use command <select 'lesson number' to make a choice: "
 			"\n1:  Beginner lessons"
