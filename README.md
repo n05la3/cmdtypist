@@ -93,7 +93,7 @@ to completely remove cmdtypist and associated files.
 
 >CMDTYPIST comes bundled with a good number of lessons for both programmers
 and non-programmers. The non programmer lessons help train the user on 
-basic typing techiques and the programmer lessons help both the programmer
+basic typing techniques and the programmer lessons help both the programmer
 and non programmers to become better at typing.
 
 >An accurate speed algorithm in character per minute (CPM) and an approximate
@@ -154,7 +154,7 @@ correct)
 and starts only as described above.
 
 >The last line of each lesson session is marked blue, so user is aware and 
-can take time to review speed details befor estarting the following lesson.
+can take time to review speed details before starting the following lesson.
 
 ### License
 
