@@ -10,6 +10,12 @@ consists true programming lessons, so the user can type and learn at the same ti
 
 ![about cmdtypist](https://raw.githubusercontent.com/Noslac/cmd_typist/master/about.gif)
 
+### Requirements
+
+	gcc compiler
+
+A gcc compiler is required to compile cmdtypist	
+
 ### DOWNLOAD
 
 You can get cmdtypist by cloning the repo from github
@@ -18,24 +24,28 @@ You can get cmdtypist by cloning the repo from github
 
 ### INSTALLATION
 
-Open a terminal and navigate to the directory containing cmdtypist and all 
-it's files. Navigate to cmdtypist directory called installation and run
+Open a terminal and navigate into your clone copy of cmd_typist directory. cd further into installation directory. Run
 
 					./install.sh 
 
-to install cmdtypist
+script to install cmdtypist
 
 ### RUNNING
 
 
-If _install.sh_ exited with a success message, then you have installed cmdtypist,
-you can then run the command 
+If _install.sh_ script exited with a success message, then you have installed cmdtypist, you can then run the command 
 
 			cmdtypist arg1 arg2 arg3 ...
 
-from any directory. _arg1, arg2,..._ are valid cmdtypist arguments, 
-to know all valid arguments, run the cmdtypist help command or consult the help 
-file which comes with the program. If you are a first time user, after installing cmdtypist, you must run the command **_cmdtypist mkuser "username"_** to create a user called username.
+from any directory. _arg1, arg2,..._ are valid cmdtypist arguments.
+
+The first command to run if you are a new user is the **_cmdtypist mkuser "username"_** 
+ 
+Run
+		
+			cmdtypist --help
+
+To know all commands and arguments available
 
 ### CMDTYPIST ARGUMENTS
 
@@ -43,17 +53,17 @@ _cmdtypist_ commands are entered at the terminal with the exception of **_select
 
 CMDTYPIST Commands | Description
 ------------ | -------------
-**cmtypist --help** | Displays help menu
-**cmtypist**| Displays lessons and opens the cmdtypist prompt 
+**cmdtypist --help** | Displays help menu
+**cmdtypist**| Displays lessons and opens the cmdtypist prompt 
 **cmdtypist mkuser "username"** | Creates a new user called username
-**cmtypist ls** | Lists available lessons, use <select "lesson-number"> to select a lesson
-**cmtypist man** | Displays cmdtypist readme file
+**cmdtypist ls** | Lists available lessons, use <select "lesson-number"> to select a lesson
+**cmdtypist man** | Displays cmdtypist readme file
 **cmdtypist select "lesson number"** | Used to select a lesson directly from terminal 
-**cmtypist atv**| Use this command if backspace is not working properly
+**cmdtypist atv**| Use this command if backspace is not working properly
 **cmdtypist sound --on** | Activates error beep sound
 **cmdtypist sound --off** | Deacativates beep sound
 **cmdtypist /myown** | Changes the lessons to user's lesson copied into myown.txt
-**cmtypist cchl** | Exits from user's lesson mode 
+**cmdtypist cchl** | Exits from user's lesson mode 
 **cmdtypist mkstd** | Lessons appear as they are in lesson file 
 **cmdtypist mkrand** | Lessons appear randomly
 **cmdtypist chblock "lesson number"** | changes number of lines per sesson to an int 'lesson number'
