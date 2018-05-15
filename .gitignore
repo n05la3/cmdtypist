@@ -5,5 +5,5 @@ cmd_typist
 cmdtypist.conf
 
 #user data
-/speed/user_speed.info
+user_speed.info
 
