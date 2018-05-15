@@ -39,7 +39,7 @@ If _install.sh_ script exited with a success message, then you have installed cm
 
 from any directory. _arg1, arg2,..._ are valid cmdtypist arguments.
 
-The first command to run if you are a new user is the **_cmdtypist mkuser "username"_** 
+The first command to run if you are a new user is the **_cmdtypist mkuser "username"_** to create a new user. (Read more in arguments section below)
  
 Run
 		
