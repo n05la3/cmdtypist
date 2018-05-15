@@ -1,5 +1,6 @@
 #!/bin/bash
 #install cmdtypist 
+gcc ../cmd_typist.c -o ../cmd_typist &&
 sudo cp ../cmdtypist /usr/bin/cmdtypist &&
 mkdir $HOME/cmdtypist && 
 cp -r ../ $HOME/cmdtypist/ &&
