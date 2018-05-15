@@ -1,33 +1,9 @@
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+#compiled program
+cmd_typist
 
-# Precompiled Headers
-*.gch
-*.pch
+#app configuration
+cmdtypist.conf
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+#user data
+/speed/user_speed.info
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
