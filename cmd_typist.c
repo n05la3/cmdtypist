@@ -365,7 +365,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 	}
 	fseek(noslac_lessonsp,move_lesson_to,SEEK_SET);
 	
-	while(block_count<=(int)(length_to_read/((chars_to_read+1)*block_length)))//testing inorder to read the entire lesson chosen.
+	while(block_count <= (int)(length_to_read/((chars_to_read+1) * block_length)))//testing inorder to read the entire lesson chosen.
 	{
 		num_of_chars_typed=0;
 		char time_checker=0;//changes back to zero after every block typing
@@ -387,16 +387,17 @@ void main_play(int argc_cmd,int *lesson_choice)
 		{
 			i=0;
 			char endl = guess(14, 33);//endl holds the char to end a line in place of usual '\n'
-			while(i<=chars_to_read)//test on i to get 77 characters. the screen size is exactly 77 characters.
+			char startl = guess(14, 33); //guess generates a random char
+			while(i <= chars_to_read)//test on i to get 77 characters. the screen size is exactly 77 characters.
 			{
-				linetype[i]=getc(noslac_lessonsp);//getting characters and placing in the linetype array.
-				if(linetype[0]==' ')//prevent a the start of a line from ever being a space character
-			     	i-=1;			//by moving one space back when a space is met
-			    if(linetype[chars_to_read]==' ')//ensuring a line does not with a space character.
-			    	linetype[chars_to_read]='-';//replacing space character at the end of a line with a -
-				if(i>0)
-					if(linetype[i-1]==' '&&linetype[i]==' ')//preventing two consecutive space characters since text read is random.
-						i-=2;
+				linetype[i] = getc(noslac_lessonsp);//getting characters and placing in the linetype array.
+				if(linetype[0] == ' ')//prevent a the start of a line from ever being a space character
+			     	linetype[0] = startl;		//replace with random char
+			    if(linetype[chars_to_read] == ' ')//ensuring a line does not end with a space character.
+			    	linetype[chars_to_read] = '-';//replacing space character at the end of a line with a -
+				if(i > 1)
+					if(linetype[i-1] == ' ' && linetype[i] == ' ')//preventing two consecutive space characters since text read is random.
+						i -= 2;
 				//checking and eliminating newlines to prevent brakes.
 				if(linetype[i]=='\n'){
 
@@ -411,8 +412,9 @@ void main_play(int argc_cmd,int *lesson_choice)
 				}
 				i++;	
 			}
+
 			linetype[i]='\0';//Adding string terminator and subtracting the number of spaces removed.
-			if((number_of_lines_count%(block_length))==0&&number_of_lines_count!=0)
+			if((number_of_lines_count % (block_length)) == 0 && number_of_lines_count != 0)
 				printf(""LAST_LINE_BLUE"");
 			else
 				printf(""RESET"");
@@ -420,7 +422,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 			number_of_lines_count++;
 			i=0;//setting i to 0 to begin new counting.
 			unsigned short error_store[3000], j=0;//error_store: array of ints to note the index of a wrong character.
-			while(i<=chars_to_read+1)//adding 1 for the extra enter key after the 77 letters are entered.
+			while(i <= chars_to_read+1)//adding 1 for the extra enter key after the 77 letters are entered.
 			{
 				int u=0;//loop counter
 				if((ch=getche())!='\n'&&ch!=EOF)//using getche to prevent printing of enter key.
@@ -439,7 +441,7 @@ void main_play(int argc_cmd,int *lesson_choice)
 					exit(EXIT_FAILURE);
 				}
 				
-				if(ch==27||ch=='\t')/*testing for ESC character or a tab to exit program.
+				if(ch == 27 || ch == '\t')/*testing for ESC character or a tab to exit program.
 				                               iscntrl ensures a control character is entered to exit the program*/
 				{
 					terminate=1;
@@ -447,12 +449,12 @@ void main_play(int argc_cmd,int *lesson_choice)
 					puts("\n");
 					break;
 				}
-				if((ch==127||ch==8)&&i==0)//not using '\b' since most terminals are 'cooked' (keys like backspace are handled by terminal driver)  //checking for both delete and backspace.
+				if((ch==127 || ch == 8)&& i == 0)//not using '\b' since most terminals are 'cooked' (keys like backspace are handled by terminal driver)  //checking for both delete and backspace.
 				  letter_clear(adapt_to_ver_read());        
-				else if((ch==127||ch==8)&&i>0)//testing for delete of backspace
+				else if((ch == 127 || ch == 8) && i > 0)//testing for delete of backspace
 				    {
 						i--;//decremting the number of characters entered when backspaced is pressed.
-						letter_clear(adapt_to_ver_read());//clearing the backspace printed and making sure it works with many terminal versions
+						letter_clear(adapt_to_ver_read());
 						j=wrong_letters;
 						while(j>u)//counting from u to j, to find if there is a wrong character stored in the error_store array of ints.
 						{
@@ -506,14 +508,14 @@ void main_play(int argc_cmd,int *lesson_choice)
 			if(terminate==1||argc_cmd==4)
 				break;
 		} 
-		elapsed_time = (unsigned)time(NULL)-start_time;/*getting the final time and subtracting from the initial 
+		elapsed_time = (unsigned)time(NULL) - start_time;/*getting the final time and subtracting from the initial 
 														to get the elapsed time*/
 		block_count++;
 		//printf("lines=%d block = %d\n",number_of_lines_count,block_length );
 		if(terminate==1)//exiting on tabs and other systme keys
 		{
 			char user_name[81];
-			if(elapsed_time<=10)
+			if(elapsed_time <= 10)
 			{
 				fprintf(stderr, "%s\n", "Speed not recorded");
 				printf(""RESET"\n");
