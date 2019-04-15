@@ -420,3 +420,45 @@ extern void lmt_pg_size()//limit page size
 	    	exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * @param void
+ * performs a test to make sure cmdtypist has been installed to home directory
+ * installed? true: it changes the current directory the the home/cmdTypist directory
+ * false: it gives a warning message with possible fixes and continues
+ */
+extern void redirect(void)
+{	
+	char idir[62] = "";
+	if(getenv("HOME") != NULL)
+	{		
+		strncpy(idir,getenv("HOME"), 50);
+		strcat(idir, "/cmdTypist");//installation directory
+		printf("%s\n", idir);
+	}
+	// exit(0);
+	FILE *fp;
+		//call script that verifies if program is installed to $home/cmdTypist
+	char test_dir[60] = "";
+	strncpy(test_dir, idir, 50);
+	strcat(test_dir, "/files.h");
+	if((fp=fopen(test_dir,"r")) == NULL)
+	{
+		fprintf(stderr, "%s\n", "Program not installed to $HOME/cmdTypist directory\n");
+		fprintf(stderr, "\t- %s\n", "Navigate to cmdtypist directory manually, before running it\n");
+		fprintf(stderr, "\t- %s\n", "OR uninstall and reinstall a fresh copy\n");
+		return;
+	}else{
+		//system(idir); //navigate to installation directory
+		//change directory
+		if(chdir(idir) == -1){
+			fprintf(stderr, "%s\n", "Error changing directory to $HOME/cmdTypist");
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	if(fclose(fp)){
+		fprintf(stderr, "%s\n", "Fatal Error, Unable to close some files\n");
+	    	exit(EXIT_FAILURE);
+	}
+}

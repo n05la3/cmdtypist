@@ -14,6 +14,7 @@ Program Size: 2.8MB
 #include<string.h>
 #include<time.h>
 #include<ctype.h>
+#include <unistd.h>
 
 //cmdtypist.c: Implementing the main 
 #include"functions_for_cmd_typist.h"//function prototypes and global variables.
@@ -26,6 +27,7 @@ Program Size: 2.8MB
 char argv[5][18];
 int main(int argc, char **argv)//argc=command line counter, argv=pointer to pointer to character(command line arguments)
 {
+	redirect();
 	lmt_pg_size();
 	name_display();
 	read_message_conf();//welcome message for first time users.
