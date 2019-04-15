@@ -33,7 +33,7 @@ extern short guess(int min, int max)
 
 extern void lesson_list(void)
 	{
-		unsigned short n=guess(13,0);
+		unsigned short n = guess(22,0);
 		system("clear");
 		puts("LESSONS, use command <select 'lesson number' to make a choice: "
 			"\n1:  Beginner lessons"
@@ -41,7 +41,7 @@ extern void lesson_list(void)
 			"\n3:  Linux commands"
 			"\n4:  Cmd commands"
 			"\n5:  Learning numbers"
-			"\n6:  Noslac's notes on computing"
+			"\n6:  Noslac's notes in computing"
 			"\n7:  History of Cameroon"
 			"\n8:  Getting acquanted to symbols"
 			"\n9:  Coding in c"
@@ -55,7 +55,7 @@ extern void lesson_list(void)
 			switch(n)
 			{
 				case 1:
-					printf("%s", ":: Go over your session speed analysis, \'time starts when you start\'\n");
+					printf("%s", ":: Go over your session speed analysis, \'time starts ONLY when you start\'\n");
 					break;
 				case 2:
 					printf("%s",":: All the lessons in this program are informative, type and learn!!!\n");
@@ -67,7 +67,7 @@ extern void lesson_list(void)
 					printf("%s",":: Consult the user_speed.info file to get your saved speed details\n");
 					break;
 				case 5: 
-					printf("%s",":: Use the \"help command\" to get details of any command when in doubt\n");
+					printf("%s",":: Use the \"help 'command'\" to get details of any command when in doubt\n");
 					break;
 				case 6:
 					printf("%s\n",":: Use tab key during lesson session to exit and get your instant speed");
@@ -89,6 +89,33 @@ extern void lesson_list(void)
 					break;				
 				case 12:
 					printf("%s\n", ":: Paste your own lesosn in myown.txt in program directory and type");
+					break;
+				case 13:
+					printf("%s",":: You will only get better if you type more\n" );
+					break;
+				case 14:
+					printf("%s",":: Love cmdtypist? give me a * on github www.github.com/cmd_typist \n" );
+					break;
+				case 15:
+					printf("%s",":: You will get to master symbols mostly used by programmers \n" );
+					break;
+				case 16:
+					printf("%s",":: You will progress only if you type more often \n" );
+					break;
+				case 17:
+					printf("%s",":: With random mode the lessons might no longer make sense ): \n" );
+					break;
+				case 18:
+					printf("%s",":: standard mode: lessons appear as they are in lesson file. random mode: cmdtypist makes a guess and reads anywhere :) \n" );
+					break;
+				case 19:
+					printf("%s",":: 365+ days from now, you can wonder at how slow you were when you started. Analysis store in speed/user_speed.info file\n" );
+					break;
+				case 20:
+					printf("%s",":: Found a bug? you can help fix it or lemme know on github\n" );
+					break;
+				case 21:
+					printf("%s",":: Enjoy cmdtypist? Why not share with your friends\n" );
 					break;
 				default:
 					printf("%s",":: You will only get better if you type more\n" );
